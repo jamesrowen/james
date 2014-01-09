@@ -4,6 +4,14 @@
 	var minScrollPos = 59;
 	var maxScrollPos = $(window).height() - 40 - 25;
 
+	// window resize
+	$(window).resize(function() {
+		$("#settings").css('top', ($(window).height()-$("#settings").height())/2 + 'px');
+		// update scrollbar
+		$(document).trigger('scroll');
+		maxScrollPos = $(window).height() - 40 - 25;
+	});
+
 	// if we're on a project - start with the list open
 	if(window.location.pathname.indexOf("projects") > -1) {
 		$(".projects").show();
@@ -15,16 +23,16 @@
 		$(this).next().slideToggle();
 	});
 
+	// jump to links
+	$('#home-link').click(function() { 
+		$('html, body').animate({ scrollTop:$('#home').offset().top }, 600, function(){});
+	});
+	$('#resume-link').click(function() { 
+		$('html, body').animate({ scrollTop:$('#resume').offset().top }, 600, function(){});
+	});
+
 	// vertically center the settings menu
 	$("#settings").css('top', ($(window).height()-$("#settings").height())/2 + 'px');
-
-	// window resize
-	$(window).resize(function() {
-		$("#settings").css('top', ($(window).height()-$("#settings").height())/2 + 'px');
-		// update scrollbar
-		$(document).trigger('scroll');
-		maxScrollPos = $(window).height() - 40 - 25;
-	});
 
 	// toggle settings menu
 	$('#settings-tab').click(function() { 

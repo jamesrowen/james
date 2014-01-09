@@ -46,13 +46,16 @@ a { text-decoration:none; color:#888; cursor:pointer; }
 .post { max-width:800px; font-size:14px; padding:40px 0;}
 .post h2 { font-size:28px; margin-bottom:0; text-align:right; }
 .post h3 { font-size: 12pt; margin-bottom:15px; line-height:1.7; color:#888; border-color:inherit; text-align:right; }
+.post h4 { font-size:18px; margin:25px 0 20px 0; }
+.post h5 { font-size:14px; font-weight:bold; }
 .post a.image { color:inherit; }
+.post ul { margin: 10px 15px 10px 31px;}
 .post img { 
 	display:block; max-width:759px; margin:25px 0; 
 	border-bottom:1px solid; border-right:1px solid;
 }
 
-.post-content { padding-left:40px; }
+.post-content { padding-left:40px; color:#c8c8c8;}
 
 
 /* settings widget */
