@@ -59,24 +59,24 @@
 	$('#lower').click(function() { 
 		$('#lower').addClass('active');
 		$('#upper').removeClass('active');
-		$('#left,#settings,h2,h3').css('text-transform', 'lowercase');
+		$('#nav,#settings,h2,h3').css('text-transform', 'lowercase');
 	});
 	$('#upper').click(function() { 
 		$('#upper').addClass('active');
 		$('#lower').removeClass('active');
-		$('#left,#settings,h2,h3').css('text-transform', 'uppercase');
+		$('#nav,#settings,h2,h3').css('text-transform', 'uppercase');
 	});
 
 	// toggle normal/bold links on left side
 	$('#weight-normal').click(function() { 
 		$('#weight-normal').addClass('active');
 		$('#weight-bold').removeClass('active');
-		$('#left,#settings').css('font-weight', 'normal');
+		$('#nav,#settings').css('font-weight', 'normal');
 	});
 	$('#weight-bold').click(function() { 
 		$('#weight-bold').addClass('active');
 		$('#weight-normal').removeClass('active');
-		$('#left,#settings').css('font-weight', 'bold');
+		$('#nav,#settings').css('font-weight', 'bold');
 	});
 
 	// toggle link colors
@@ -93,7 +93,7 @@
 
 	// left nav link hover
 	var linkAnimateTime = 150;
-	$('#left a').hover(
+	$('#nav a').hover(
 		function() { 
 			var id = $(this).attr('id');
 			var newColor = $('a.active').css('color');
@@ -126,7 +126,7 @@
 			var scrollPercent = (newScrollPos - minScrollPos) / (maxScrollPos - minScrollPos);
 			// multiply the scroll percentage by the total scroll height, and scroll the document,
 			// which triggers the scroll event listener
-			var scrollHeight = $('#right').height() - $(window).height();
+			var scrollHeight = $('#content').height() - $(window).height();
 			$(document).scrollTop(scrollPercent * scrollHeight);
 
 		});
@@ -163,7 +163,7 @@ function onScroll(e)
 {
 	for (var i=0; i<document.styleSheets.length;i++) {}
 	var top = $(document).scrollTop();
-	var maxtop = $('#right').height() - $(window).height();
+	var maxtop = $('#content').height() - $(window).height();
 	var barheight = $(window).height() - 40 - 59 - 10 - 15;
 	$('#scrollbar').css('top', (59 + barheight * top / maxtop) + 'px');
 };
@@ -173,8 +173,8 @@ function checkMobile()
 	if ($(window).width() < 648)
 	{
 		// toggle the left menu on click
-		$("#left").unbind();
-		$("#left").bind("click", function(e) {
+		$("#nav").unbind();
+		$("#nav").bind("click", function(e) {
 			$(this).parent()
 				.animate({ 
 					marginLeft:$(this).hasClass('active') ? '-190px' : '0',
@@ -187,7 +187,7 @@ function checkMobile()
 	}
 	else
 	{
-		$("#left").unbind().removeClass('active').removeAttr('style');
+		$("#nav").unbind().removeClass('active').removeAttr('style');
 		$("body").removeClass('active').removeAttr('style');
 	}
 };
