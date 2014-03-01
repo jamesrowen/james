@@ -174,20 +174,25 @@ function checkMobile()
 	{
 		// toggle the left menu on click
 		$("#nav").unbind();
-		$("#nav").bind("click", function(e) {
-			$(this).parent()
-				.animate({ 
-					marginLeft:$(this).hasClass('active') ? '-190px' : '0',
-					marginRight:$(this).hasClass('active') ? '0' : '-190px', }, 200, function(){})
-				.toggleClass('active');
-			$(this)
-				.animate({ left:$(this).hasClass('active') ? '-190px' : '0' }, 200, function(){})
-				.toggleClass('active');
-		});
+		$("#nav").bind("click", toggleNav);
 	}
 	else
 	{
 		$("#nav").unbind().removeClass('active').removeAttr('style');
-		$("body").removeClass('active').removeAttr('style');
+		$("body").removeAttr('style');
 	}
 };
+
+function toggleNav()
+{
+	var isActive = $("#nav").hasClass('active');
+	var dx = -190;
+
+	$("#nav")
+		.animate({ left: isActive ? dx + 'px' : '0' }, 200, function(){})
+		.toggleClass('active')
+		.parent().animate({ 
+				marginLeft: isActive ? dx + 'px' : '0',
+				marginRight: isActive ? '0' : dx + 'px' 
+			}, 200, function(){});
+}
