@@ -2,7 +2,7 @@
 html {height:100% }
 body { 
 	height:100%; 
-	margin-left:-180px;
+	margin-left:-190px;
 	font: normal 100% "Oxygen", sans-serif;
 	background:#333; 
 	color:#ddd; 
@@ -21,7 +21,7 @@ a { text-decoration:none; color:#888; cursor:pointer; }
 /* left side */
 #left {
 	float:left; display:inline; position:fixed;
-	top:0; left:-180px; width:160px; height:100%;
+	top:0; left:-190px; width:160px; height:100%;
 	padding-top:40px; padding-left:40px; z-index:0; 
 	line-height:1.6;
 	color: #888;
@@ -48,7 +48,7 @@ a { text-decoration:none; color:#888; cursor:pointer; }
 /* right side */
 #right { 
 	max-width:50em; 
-	margin:0 40px 0 200px;
+	margin:0 .625em 0 200px;
 	min-height:100%; 
 	box-shadow:none; 
 	border-left: 1px solid; 
@@ -80,7 +80,7 @@ a { text-decoration:none; color:#888; cursor:pointer; }
 	border-right:1px solid;
 }
 
-.post-content { padding-left:1.25em; color:#c8c8c8;}
+.post-content { padding-left:.625em; color:#c8c8c8;}
 
 
 /* settings widget */
