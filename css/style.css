@@ -32,7 +32,7 @@ a { text-decoration:none; color:#888; cursor:pointer; }
 #left ul { list-style:none; margin-top:2px; }
 #left li ul { margin-top:2px; margin-bottom:2px; margin-left: 15px; display:none; }
 
-#links { margin-top:100px; position:fixed; width:inherit; bottom:100px; }
+#links { margin-top:100px; width:inherit; bottom:100px; }
 #links li { border-bottom:1px solid; }
 
 #scrollbar {

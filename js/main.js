@@ -10,6 +10,7 @@
 		// update scrollbar
 		$(document).trigger('scroll');
 		maxScrollPos = $(window).height() - 40 - 25;
+		checkMobile();
 	});
 
 	// if we're on a project - start with the list open
@@ -165,4 +166,28 @@ function onScroll(e)
 	var maxtop = $('#right').height() - $(window).height();
 	var barheight = $(window).height() - 40 - 59 - 10 - 15;
 	$('#scrollbar').css('top', (59 + barheight * top / maxtop) + 'px');
+};
+
+function checkMobile() 
+{
+	if ($(window).width() < 648)
+	{
+		// toggle the left menu on click
+		$("#left").unbind();
+		$("#left").bind("click", function(e) {
+			$(this).parent()
+				.animate({ 
+					marginLeft:$(this).hasClass('active') ? '-190px' : '0',
+					marginRight:$(this).hasClass('active') ? '0' : '-190px', }, 200, function(){})
+				.toggleClass('active');
+			$(this)
+				.animate({ left:$(this).hasClass('active') ? '-190px' : '0' }, 200, function(){})
+				.toggleClass('active');
+		});
+	}
+	else
+	{
+		$("#left").unbind().removeClass('active').removeAttr('style');
+		$("body").removeClass('active').removeAttr('style');
+	}
 };
