@@ -165,7 +165,7 @@ function checkMobile()
 	{
 		// clear the click event and any styles it applied
 		$("#nav").unbind("click").removeClass('active').removeAttr('style')
-			.parent().removeAttr('style');
+			//.parent().removeAttr('style');
 	}
 };
 
@@ -188,10 +188,10 @@ function toggleNav()
 	$("#nav")
 		.animate({ left: isNavOpen ? -dx + 'px' : '0' }, duration, function(){})
 		.toggleClass('active')
-		.parent().animate({ 
-			marginLeft: isNavOpen ? -dx + 'px' : '0', 
-			marginRight: isNavOpen ? '0' : -dx + 'px' 
-		}, duration, function(){});
+		// .parent().animate({ 
+		// 	marginLeft: isNavOpen ? -dx + 'px' : '0', 
+		// 	marginRight: isNavOpen ? '0' : -dx + 'px' 
+		// }, duration, function(){});
 }
 
 function setFont(e) 
