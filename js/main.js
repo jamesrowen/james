@@ -1,3 +1,7 @@
+var scope = {
+	settingsRight: -140
+};
+
 (function(window) {
 
 	// scrollbar stuff
@@ -29,7 +33,9 @@
 
 	// toggle settings menu
 	$('#settings-tab').click(function() { 
-		$(this).parent().animate({ right:$(this).hasClass('active') ? '-130px' : '0' }, 400, function(){});
+		$(this).parent().animate({ 
+			right:$(this).hasClass('active') ? scope.settingsRight + 'px' : '0' 
+		}, 400, function(){});
 		$(this).toggleClass('active');
 	});
 
@@ -151,21 +157,25 @@ function onResize(e)
 // during a resize event, check if we are at mobile size
 function checkMobile() 
 {
-	var breakpoint = 648;
-
+	var breakpoint = 632;
 	// mobile
 	if ($(window).width() <= breakpoint)
 	{
 		// add click handler to toggle the menu
 		$("#nav").unbind("click").bind("click", toggleNav);
+
+		$('#settings-tab').html('<a>&lt;</a>').width('10px').css({ 'left': '-24px', 'padding':'3px 6px 3px 6px', 'background-color': 'inherit' });
+		scope.settingsRight = -140;
 	}
 
 	// non-mobile
 	else
 	{
 		// clear the click event and any styles it applied
-		$("#nav").unbind("click").removeClass('active').removeAttr('style')
-			//.parent().removeAttr('style');
+		$("#nav").unbind("click").removeClass('active').removeAttr('style');
+
+		$('#settings-tab').html('<a>settings</a>').width('80px').removeAttr('style');
+		scope.settingsRight = -135;
 	}
 };
 

@@ -99,16 +99,24 @@ a { text-decoration:none; color:#888; cursor:pointer; }
 
 /* settings widget */
 #settings { 
-	position:fixed; right:-130px; top:250px;
+	position:fixed; right:-140px; top:250px;
 	height: 325px; width: 130px;
 	border-left: 1px solid;
 	text-align:right;
 	padding-right:10px;
 	color: #888;
+	background-color: inherit;
 	font-weight: bold;
 }
-#settings div { padding-top:10px; }
-#settings-tab { position:absolute; width:80px; left:-80px; top:150px; text-align:left; }
+#settings div { margin-top:10px; }
+#settings-tab { 
+	position: absolute; 
+	width: 80px; 
+	left: -82px; top:148px; 
+	text-align: left;
+	border-left: 1px solid;
+	border-top: 1px solid;
+}
 
 #light { color:#fff }
 #dark { color:#000 }

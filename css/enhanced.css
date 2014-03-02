@@ -1,19 +1,22 @@
 @media screen and (min-width: 40.5em) {
-	#page {
-		margin-left: 0;
-	}
-	#nav {
-		left: 0;
-	}
+	#page {	margin-left: 0; }
+
+	#nav { left: 0;	}
 
 	#content { margin-right:2em; }
 	.post { padding:2em 0; }
 	.post-content { padding-left:2em; }
+
+	#settings { right:-135px; }
+	#settings-tab { 
+		border-left: none;
+		border-top: none;
+	}
 }
 
 
 @media screen and (min-width: 55em) {
-	#content { margin-right:2.5em; }
+	#content { margin-right:7.5em; }
 	.post { padding:2.5em 0; }
 	.post-content { padding-left:2.5em; }
 }
