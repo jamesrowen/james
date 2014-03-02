@@ -1,5 +1,5 @@
 var scope = {
-	settingsRight: -140
+	settingsRight: -141
 };
 
 (function(window) {
@@ -43,14 +43,18 @@ var scope = {
 	$('#dark').click(function() { 
 		$('#dark').addClass('active');
 		$('#light').removeClass('active');
-		$('body').animate({ backgroundColor:'#333', color:'#ddd' }, 500, function(){});
+		$('#page').animate({ backgroundColor:'#333', color:'#ddd' }, 500, function(){});
 		$('#scrollbar').animate({ borderColor:'#333', backgroundColor:'#ddd' }, 500, function(){});
+		$('#nav').css({ 'border-right': '1px solid #333',
+			'box-shadow': '1px 1px 2px #ccc' });
 	});
 	$('#light').click(function() { 
 		$('#light').addClass('active');
 		$('#dark').removeClass('active');
-		$('body').animate({ backgroundColor:'#e0e0e0', color:'#484848' }, 500, function(){});
+		$('#page').animate({ backgroundColor:'#e0e0e0', color:'#484848' }, 500, function(){});
 		$('#scrollbar').animate({ borderColor:'#e0e0e0', backgroundColor:'#484848' }, 500, function(){});
+		$('#nav').css({ 'border-right': '1px solid #ddd',
+			'box-shadow': '1px 1px 2px #555' });
 	});
 
 	// toggle lowercase/uppercase headers
@@ -165,7 +169,7 @@ function checkMobile()
 		$("#nav").unbind("click").bind("click", toggleNav);
 
 		$('#settings-tab').html('<a>&lt;</a>').width('10px').css({ 'left': '-24px', 'padding':'3px 6px 3px 6px', 'background-color': 'inherit' });
-		scope.settingsRight = -140;
+		scope.settingsRight = -141;
 	}
 
 	// non-mobile
@@ -191,12 +195,12 @@ function onScroll(e)
 // slide the left nav pane in or out
 function toggleNav()
 {
-	var dx = 190;
+	var distInEM = 10.875;
 	var duration = 200;
 	var isNavOpen = $("#nav").hasClass('active');
 
 	$("#nav")
-		.animate({ left: isNavOpen ? -dx + 'px' : '0' }, duration, function(){})
+		.animate({ left: isNavOpen ? -distInEM + 'em' : '0' }, duration, function(){})
 		.toggleClass('active')
 		// .parent().animate({ 
 		// 	marginLeft: isNavOpen ? -dx + 'px' : '0', 
@@ -208,13 +212,13 @@ function setFont(e)
 {
 		$('.set-font a').removeClass('active');
 		$(e.data.divId).addClass('active');
-		$('body').css('font-family', e.data.font);
+		$('#page').css('font-family', e.data.font);
 };
 
 function setLinkColor(e) 
 {
 		$('.set-link-color a').removeClass('active');
 		$(e.data.divId).addClass('active');
-		$('body').removeClass("red blue green");
-		$('body').addClass(e.data.color);
+		$('#page').removeClass("red blue green");
+		$('#page').addClass(e.data.color);
 };

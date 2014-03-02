@@ -1,7 +1,10 @@
 @media screen and (min-width: 40.5em) {
 	#page {	margin-left: 0; }
 
-	#nav { left: 0;	}
+	#nav { 
+		left: 0;
+		padding-left: 2.5em;
+	}
 
 	#content { margin-right:2em; }
 	.post { padding:2em 0; }
