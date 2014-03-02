@@ -5,13 +5,8 @@
 	var maxScrollPos = $(window).height() - 40 - 25;
 
 	// window resize
-	$(window).resize(function() {
-		$("#settings").css('top', ($(window).height()-$("#settings").height())/2 + 'px');
-		// update scrollbar
-		$(document).trigger('scroll');
-		maxScrollPos = $(window).height() - 40 - 25;
-		checkMobile();
-	});
+	onResize();
+	$(window).resize(onResize);
 
 	// if we're on a project - start with the list open
 	if(window.location.pathname.indexOf("projects") > -1) {
@@ -26,14 +21,11 @@
 
 	// jump to links
 	$('#home-link').click(function() { 
-		$('html, body').animate({ scrollTop:$('#home').offset().top }, 600, function(){});
+		$('html, body').animate({ scrollTop:$('#home').offset().top }, 300, function(){});
 	});
 	$('#resume-link').click(function() { 
-		$('html, body').animate({ scrollTop:$('#resume').offset().top }, 600, function(){});
+		$('html, body').animate({ scrollTop:$('#resume').offset().top }, 300, function(){});
 	});
-
-	// vertically center the settings menu
-	$("#settings").css('top', ($(window).height()-$("#settings").height())/2 + 'px');
 
 	// toggle settings menu
 	$('#settings-tab').click(function() { 
@@ -144,6 +136,64 @@
 })(window);
 
 
+function onResize(e)
+{
+		// vertically center settings widget
+		$("#settings").css('top', ($(window).height()-$("#settings").height())/2 + 'px');
+
+		// update scrollbar position
+		$(document).trigger('scroll');
+		maxScrollPos = $(window).height() - 40 - 25;
+
+		checkMobile();
+}
+
+// during a resize event, check if we are at mobile size
+function checkMobile() 
+{
+	var breakpoint = 648;
+
+	// mobile
+	if ($(window).width() <= breakpoint)
+	{
+		// add click handler to toggle the menu
+		$("#nav").unbind("click").bind("click", toggleNav);
+	}
+
+	// non-mobile
+	else
+	{
+		// clear the click event and any styles it applied
+		$("#nav").unbind("click").removeClass('active').removeAttr('style')
+			.parent().removeAttr('style');
+	}
+};
+
+function onScroll(e) 
+{
+	for (var i=0; i<document.styleSheets.length;i++) {}
+	var top = $(document).scrollTop();
+	var maxtop = $('#content').height() - $(window).height();
+	var barheight = $(window).height() - 40 - 59 - 10 - 15;
+	$('#scrollbar').css('top', (59 + barheight * top / maxtop) + 'px');
+};
+
+// slide the left nav pane in or out
+function toggleNav()
+{
+	var dx = 190;
+	var duration = 200;
+	var isNavOpen = $("#nav").hasClass('active');
+
+	$("#nav")
+		.animate({ left: isNavOpen ? -dx + 'px' : '0' }, duration, function(){})
+		.toggleClass('active')
+		.parent().animate({ 
+			marginLeft: isNavOpen ? -dx + 'px' : '0', 
+			marginRight: isNavOpen ? '0' : -dx + 'px' 
+		}, duration, function(){});
+}
+
 function setFont(e) 
 {
 		$('.set-font a').removeClass('active');
@@ -158,41 +208,3 @@ function setLinkColor(e)
 		$('body').removeClass("red blue green");
 		$('body').addClass(e.data.color);
 };
-
-function onScroll(e) 
-{
-	for (var i=0; i<document.styleSheets.length;i++) {}
-	var top = $(document).scrollTop();
-	var maxtop = $('#content').height() - $(window).height();
-	var barheight = $(window).height() - 40 - 59 - 10 - 15;
-	$('#scrollbar').css('top', (59 + barheight * top / maxtop) + 'px');
-};
-
-function checkMobile() 
-{
-	if ($(window).width() < 648)
-	{
-		// toggle the left menu on click
-		$("#nav").unbind();
-		$("#nav").bind("click", toggleNav);
-	}
-	else
-	{
-		$("#nav").unbind().removeClass('active').removeAttr('style');
-		$("body").removeAttr('style');
-	}
-};
-
-function toggleNav()
-{
-	var isActive = $("#nav").hasClass('active');
-	var dx = -190;
-
-	$("#nav")
-		.animate({ left: isActive ? dx + 'px' : '0' }, 200, function(){})
-		.toggleClass('active')
-		.parent().animate({ 
-				marginLeft: isActive ? dx + 'px' : '0',
-				marginRight: isActive ? '0' : dx + 'px' 
-			}, 200, function(){});
-}
