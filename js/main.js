@@ -35,7 +35,7 @@ var scope = {
 	$('#settings-tab').click(function() { 
 		$(this).parent().animate({ 
 			right:$(this).hasClass('active') ? scope.settingsRight + 'px' : '0' 
-		}, 400, function(){});
+		}, 300, function(){});
 		$(this).toggleClass('active');
 	});
 
@@ -45,16 +45,12 @@ var scope = {
 		$('#light').removeClass('active');
 		$('#page').animate({ backgroundColor:'#333', color:'#ddd' }, 500, function(){});
 		$('#scrollbar').animate({ borderColor:'#333', backgroundColor:'#ddd' }, 500, function(){});
-		$('#nav').css({ 'border-right': '1px solid #333',
-			'box-shadow': '1px 1px 2px #ccc' });
 	});
 	$('#light').click(function() { 
 		$('#light').addClass('active');
 		$('#dark').removeClass('active');
 		$('#page').animate({ backgroundColor:'#e0e0e0', color:'#484848' }, 500, function(){});
 		$('#scrollbar').animate({ borderColor:'#e0e0e0', backgroundColor:'#484848' }, 500, function(){});
-		$('#nav').css({ 'border-right': '1px solid #ddd',
-			'box-shadow': '1px 1px 2px #555' });
 	});
 
 	// toggle lowercase/uppercase headers

@@ -11,5 +11,6 @@ Contains a static node.js server. Run "node app.js" from the project root direct
 some todos:
 
 * make it work on mobile
+* convert to CSS animations
 * make a (slider?) setting for text contrast
 * make settings persistent
