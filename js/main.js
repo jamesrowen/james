@@ -179,7 +179,7 @@ function mediaQueries()
 	}
 
 	// full size
-	if (matchMedia("(min-width: 65em)").matches)
+	if (matchMedia("(min-width: 64.5em)").matches)
 	{
 		// settings menu - anchor shows full "settings" text
 		$('#settings-tab').html('<a>settings</a>').width('80px').removeAttr('style');

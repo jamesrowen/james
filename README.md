@@ -7,10 +7,17 @@ My personal website. WIP. HTML/CSS/JS/jQuery, with inspiration and bits of code 
 
 Contains a static node.js server. Run "node app.js" from the project root directory, browse to localhost:8888.
 
+some features:
+
+- minimal aesthetic
+- responsive design: media queries, fluid images, relative sizes
+- settings console to customize look and feel
 
 some todos:
 
-* make it work on mobile
-* convert to CSS animations
-* make a (slider?) setting for text contrast
-* make settings persistent
+- use CSS3 animations
+  - remove jQuery UI dependency
+- optimization
+  - minify and gzip assets
+  - image delivery (img srcset?)
+- make settings persist with cookie
