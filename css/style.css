@@ -1,15 +1,15 @@
 /* global styles */
 html {height:100% }
-body { 
-	height:100%; 
+body {
+	height:100%;
 	font: normal 100% "Oxygen", sans-serif;
-	color:#ddd; 
+	color:#ddd;
 }
 
 #page {
 	margin-left: -190px;
-	background:#333; 
-	border-color:#ddd; 
+	background:#333;
+	border-color:#ddd;
 }
 
 a { text-decoration:none; color:#888; cursor:pointer; }
@@ -26,13 +26,13 @@ a { text-decoration:none; color:#888; cursor:pointer; }
 #nav {
 	position:fixed;
 	top:0; left:-10.875em; width:10em; height:100%;
-	padding:1.5em 0 0 1.5em; 
+	padding:1.5em 0 0 1.5em;
 	line-height:1.6;
 	color: #888;
 	border-right: 1px solid #ddd;
 	background-color:inherit;
 	font-weight: bold;
-	z-index: 1000; 
+	z-index: 1000;
 	box-shadow: 1px 1px 2px #555;
 }
 @media screen and (min-height: 20em) {
@@ -68,37 +68,37 @@ a { text-decoration:none; color:#888; cursor:pointer; }
 }
 
 /* main content */
-#content { 
-	max-width:50em; 
+#content {
+	max-width:50em;
 	margin:0 .625em 0 200px;
-	min-height:100%; 
-	box-shadow:none; 
+	min-height:100%;
+	box-shadow:none;
 	z-index: 999;
 }
 #content div:first-child { padding-top:100px }
 
 .post { padding:1.25em 0; }
-.post h2 { 
-	font-size:1.75em; 
-	margin-bottom:0; 
-	text-align:right; 
+.post h2 {
+	font-size:1.75em;
+	margin-bottom:0;
+	text-align:right;
 }
-.post h3 { 
-	margin-bottom:15px; 
-	line-height:1.7; 
-	color:#888; 
-	border-color:inherit; 
-	text-align:right; 
+.post h3 {
+	margin-bottom:15px;
+	line-height:1.7;
+	color:#888;
+	border-color:inherit;
+	text-align:right;
 }
 .post h4 { font-size:1.2em; margin:25px 0 20px 0; }
 .post h5 { font-size:.95em; font-weight:bold; }
 .post a.image { color:inherit; }
 .post ul { margin: 10px 15px 10px 31px;}
-.post img { 
-	display:block; 
-	width:100%; 
-	margin:25px 0; 
-	border-bottom:1px solid; 
+.post img {
+	display:block;
+	width:100%;
+	margin:25px 0;
+	border-bottom:1px solid;
 	border-right:1px solid;
 }
 
@@ -106,10 +106,11 @@ a { text-decoration:none; color:#888; cursor:pointer; }
 
 
 /* settings widget */
-#settings { 
+#settings {
 	position:fixed; right:-141px; top:250px;
-	height: 325px; width: 130px;
-	border: 1px solid #ddd;
+	height: 300px; width: 130px;
+	border: 1px solid;
+	border-color: #888;
 	border-right:none;
 	text-align:right;
 	padding-right:10px;
@@ -118,14 +119,14 @@ a { text-decoration:none; color:#888; cursor:pointer; }
 	font-weight: bold;
 	box-shadow: -1px 1px 2px #555;
 }
-#settings div { 
+#settings div {
 	margin-top:10px;
-	border-color: inherit; 
+	border-color: inherit;
 }
-#settings-tab { 
-	position: absolute; 
-	width: 80px; 
-	left: -82px; top:148px; 
+#settings-tab {
+	position: absolute;
+	width: 80px;
+	left: -82px; top:148px;
 	text-align: left;
 	border-left: 1px solid;
 	border-top: 1px solid;
