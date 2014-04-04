@@ -30,7 +30,12 @@
 	}
 
 	#settings-tab {
+		background-color: none;
+		width: 80px;
+		left: -82px;
+		padding: 0px;
 		border-left: none;
 		border-top: none;
+		box-shadow: none;
 	}
 }

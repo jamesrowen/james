@@ -162,13 +162,8 @@ function mediaQueries()
 	// left menu - click on it to open/close
 	$("#nav").unbind("click").bind("click", toggleNav);
 
-	// settings menu - anchor shows small arrow icon
-	$('#settings-tab').html('<a>&lt;</a>').css({
-		'width': '10px',
-		'left': '-24px',
-		'padding':'3px 6px 3px 6px',
-		'background-color': 'inherit'
-	});
+	// settings menu - anchor shows small cog icon
+	$('#settings-tab').html('<a><span class="icon-cog"></span></a>');
 	scope.settingsRight = -141;
 
 	// middle size
@@ -182,7 +177,7 @@ function mediaQueries()
 	if (matchMedia("(min-width: 64.5em)").matches)
 	{
 		// settings menu - anchor shows full "settings" text
-		$('#settings-tab').html('<a>settings</a>').width('80px').removeAttr('style');
+		$('#settings-tab').html('<a>settings</a>');
 		scope.settingsRight = -135;
 	}
 };
