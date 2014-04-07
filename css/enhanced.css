@@ -7,13 +7,15 @@
 		padding-left: 2.5em;
 	}
 
-	#content { margin-right:2em; }
-	.post { padding:2em 0; }
-	.post-content { padding-left:2em; }
+	.post { padding:1.5em 0; }
+	.post-content { padding-left:1.5em; }
 }
 
 /* 768-1024px ~ tablet landscape */
 @media (min-width: 48.5em) {
+	#content { margin-right:2.2em; }
+	.post { padding:2em 0; }
+	.post-content { padding-left:2em; }
 }
 
 /* >1024px ~ desktop */
