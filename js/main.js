@@ -12,11 +12,6 @@ var scope = {
 	onResize();
 	$(window).resize(onResize);
 
-	// if we're on a project - start with the list open
-	if(window.location.pathname.indexOf("projects") > -1) {
-		$(".projects").show();
-	}
-
 	// toggle showing a list with a slide in/out
 	$(".list-toggle").bind("click", function(e) {
 		e.preventDefault();
