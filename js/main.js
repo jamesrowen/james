@@ -1,6 +1,15 @@
+// scope holds constant and global values
 var scope = {
-	settingsRight: -141
+	settingsRight: -141,
+	lastScrollDiv: ""
 };
+
+// add cached selectors to scope
+scope.navMenuItems = $("#nav-main a");
+scope.navDivs = scope.navMenuItems.map(function(){
+		var item = $($(this).attr("href"));
+		if (item.length) { return item; }
+	});
 
 (function(window) {
 
@@ -8,35 +17,24 @@ var scope = {
 	var minScrollPos = 59;
 	var maxScrollPos = $(window).height() - 40 - 25;
 
-	// window resize
+	// resize and scroll events
 	onResize();
 	$(window).resize(onResize);
+	$(document).scroll(onScroll);
 
-	// toggle showing a list with a slide in/out
-	$(".list-toggle").bind("click", function(e) {
+	// click events
+	//
+	// nav menu items scroll to sections
+	scope.navMenuItems.click(function(e) {
+		$('html, body').animate({ scrollTop:$($(this).attr("href")).offset().top + 1 }, 300);
 		e.preventDefault();
-		$(this).next().slideToggle();
-	});
-
-	// jump to links
-	$('#home-link').click(function() {
-		$('html, body').animate({ scrollTop:$('#home').offset().top }, 300, function(){});
-	});
-	$('#projects-link').click(function() {
-		$('html, body').animate({ scrollTop:$('#projects').offset().top }, 300, function(){});
-	});
-	$('#writing-link').click(function() {
-		$('html, body').animate({ scrollTop:$('#writing').offset().top }, 300, function(){});
-	});
-	$('#resume-link').click(function() {
-		$('html, body').animate({ scrollTop:$('#resume').offset().top }, 300, function(){});
 	});
 
 	// toggle settings menu
 	$('#settings-tab').click(function() {
 		$(this).parent().animate({
 			right:$(this).hasClass('active') ? scope.settingsRight + 'px' : '0'
-		}, 300, function(){});
+		}, 300);
 		$(this).toggleClass('active');
 	});
 
@@ -44,14 +42,14 @@ var scope = {
 	$('#dark').click(function() {
 		$('#dark').addClass('active');
 		$('#light').removeClass('active');
-		$('#page').animate({ backgroundColor:'#333', color:'#ddd' }, 500, function(){});
-		$('#scrollbar').animate({ borderColor:'#333', backgroundColor:'#ddd' }, 500, function(){});
+		$('#page').animate({ backgroundColor:'#333', color:'#ddd' }, 500);
+		$('#scrollbar').animate({ borderColor:'#333', backgroundColor:'#ddd' }, 500);
 	});
 	$('#light').click(function() {
 		$('#light').addClass('active');
 		$('#dark').removeClass('active');
-		$('#page').animate({ backgroundColor:'#e0e0e0', color:'#484848' }, 500, function(){});
-		$('#scrollbar').animate({ borderColor:'#e0e0e0', backgroundColor:'#484848' }, 500, function(){});
+		$('#page').animate({ backgroundColor:'#e0e0e0', color:'#484848' }, 500);
+		$('#scrollbar').animate({ borderColor:'#e0e0e0', backgroundColor:'#484848' }, 500);
 	});
 
 	// toggle lowercase/uppercase headers
@@ -90,6 +88,9 @@ var scope = {
 	$('#pt-sans-narrow').click({ divId:'#pt-sans-narrow', font:'PT Sans Narrow' }, setFont);
 	$('#oxygen').click({ divId:'#oxygen', font:'Oxygen' }, setFont);
 
+	//
+	// end click events
+
 	// left nav link hover
 	var linkAnimateTime = 150;
 	$('#nav a').hover(
@@ -108,9 +109,6 @@ var scope = {
 		function() { $(this).parent().animate({
 			color: "#888", "margin-left": "0", borderBottomColor: "#888"}, { duration: linkAnimateTime }); }
 	);
-
-	// event listener for any scrolling
-	$(document).scroll(onScroll);
 
 	// make the scrollbar draggable (adapted from jquery.slimscroll)
 	$('#scrollbar').bind("mousedown", function(e) {
@@ -185,11 +183,30 @@ function mediaQueries()
 
 function onScroll(e)
 {
-	for (var i=0; i<document.styleSheets.length;i++) {}
 	var top = $(document).scrollTop();
 	var maxtop = $('#content').height() - $(window).height();
+
+	// set my scrollbar to the correct position
+	//
 	var barheight = $(window).height() - 40 - 59 - 10 - 15;
 	$('#scrollbar').css('top', (59 + barheight * top / maxtop) + 'px');
+
+
+	// update scrollspy on nav menu
+	//
+	// get all nav divs above the current position
+  var cur = scope.navDivs.map(function() {
+    if ($(this).offset().top <= Math.max(top, 0))
+      return this;
+  });
+  // get the last div above the current position
+  cur = cur[cur.length-1];
+  var id = cur && cur.length ? cur[0].id : "";
+  // if we changed divs, set/unset the "active" class
+  if (scope.lastScrollDiv !== id) {
+    scope.lastScrollDiv = id;
+    scope.navMenuItems.removeClass("active").filter("[href=#"+id+"]").addClass("active");
+  }
 };
 
 // slide the left nav pane in or out
@@ -200,12 +217,8 @@ function toggleNav()
 	var isNavOpen = $("#nav").hasClass('active');
 
 	$("#nav")
-		.animate({ left: isNavOpen ? -distInEM + 'em' : '0' }, duration, function(){})
-		.toggleClass('active')
-		// .parent().animate({
-		// 	marginLeft: isNavOpen ? -dx + 'px' : '0',
-		// 	marginRight: isNavOpen ? '0' : -dx + 'px'
-		// }, duration, function(){});
+		.animate({ left: isNavOpen ? -distInEM + 'em' : '0' }, duration)
+		.toggleClass('active');
 }
 
 function setFont(e)
