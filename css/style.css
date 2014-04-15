@@ -69,12 +69,12 @@ a { text-decoration:none; color:#888; cursor:pointer; }
 /* main content */
 #content {
 	max-width:50em;
-	margin:0 .625em 0 200px;
+	margin:0 1em 0 200px;
 	min-height:100%;
 	box-shadow:none;
 	z-index: 999;
 }
-#content div:first-child { padding-top:100px }
+#content>:first-child { padding-top:6.25em }
 
 .post { padding:1.25em 0; }
 .post h2 {
@@ -88,15 +88,19 @@ a { text-decoration:none; color:#888; cursor:pointer; }
 	border-color:inherit;
 	text-align:right;
 }
-.post h4 { font-size:1.2em; margin:25px 0 20px 0; }
+.post h4 {
+	font-size: 1.2em;
+	margin: 2em 0 .2em 0;
+	padding-bottom: 3px;
+}
 .post h5 { font-size:.95em; font-weight:bold; }
 .post a.image { color:inherit; }
 .post ul { margin: 10px 15px 10px 31px;}
 .post img {
-	display:block;
+	display:inline-block;
 	width:100%;
 	margin:25px 0;
-	border-bottom:1px solid;
+/*	border-bottom:1px solid;*/
 	border-right:1px solid;
 }
 
