@@ -22,6 +22,12 @@ var scope = {
 	$('#home-link').click(function() {
 		$('html, body').animate({ scrollTop:$('#home').offset().top }, 300, function(){});
 	});
+	$('#projects-link').click(function() {
+		$('html, body').animate({ scrollTop:$('#projects').offset().top }, 300, function(){});
+	});
+	$('#writing-link').click(function() {
+		$('html, body').animate({ scrollTop:$('#writing').offset().top }, 300, function(){});
+	});
 	$('#resume-link').click(function() {
 		$('html, body').animate({ scrollTop:$('#resume').offset().top }, 300, function(){});
 	});
