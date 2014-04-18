@@ -34,8 +34,8 @@ a {
 .btn {
 	display: block;
 	text-align: center;
-	width: 20%;
-	background-color: #ccc;
+	width: 60px;
+	background-color: #ddd;
 	padding: 10px 20px;
 	border-radius: 5px;
 	-webkit-transition:
@@ -256,4 +256,8 @@ img.project-image {
 	width: 100%;
 	height: 100%;
 	font-size:1.3em;
+}
+
+.icon-download:before {
+	content: "\e600";
 }
