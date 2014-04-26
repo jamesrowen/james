@@ -177,18 +177,25 @@ img.project-image {
 
 /* settings widget */
 #settings {
-	position:fixed; right:-141px; top:250px;
-	height: 300px; width: 130px;
+	position: fixed;
+	right: -161px;
+	top: 250px;
+	height: 300px;
+	width: 150px;
 	border: 1px solid;
 	border-color: #888;
-	border-right:none;
-	text-align:right;
-	padding-right:10px;
+	border-right: none;
+	text-align: right;
+	padding-right: 10px;
 	color: #888;
 	background-color: inherit;
 	font-weight: bold;
 	box-shadow: -1px 1px 2px #555;
+	-webkit-transition: right .3s;
+	transition: right .3s;
 }
+
+#settings.active { right: 0; }
 
 #settings div {
 	margin-top:10px;
@@ -199,7 +206,7 @@ img.project-image {
 	background-color: inherit;
 	text-align: left;
 	position: absolute;
-	top:148px;
+	top:143px;
 	left: -32px;
 	width: 16px;
 	padding: 6px 10px 6px 4px;
@@ -208,13 +215,12 @@ img.project-image {
 	box-shadow: -1px 1px 2px #555;
 }
 
-#light { color:#fff }
-#dark { color:#000 }
+#light { color:#bbb }
+#dark { color:#333 }
 #lower { text-transform:lowercase !important }
 #upper { text-transform:uppercase !important }
 #weight-bold { font-weight:bold !important }
 #weight-normal { font-weight:normal !important }
-.set-font { margin-right:10px; }
 #open-sans { font-family: "Open sans" }
 #lato { font-family: "Lato"; }
 #droid-sans { font-family: "Droid Sans"; }

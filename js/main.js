@@ -1,10 +1,8 @@
 // scope holds constant and global values
-var scope = {
-	settingsRight: -141,
-	lastScrollDiv: ""
-};
+var scope = {};
 
-// add cached selectors to scope
+// for scrollspy - cache selectors (does this actually affect perf?)
+scope.lastScrollDiv = "";
 scope.navMenuItems = $("#nav-main a");
 scope.navDivs = scope.navMenuItems.map(function(){
 		var item = $($(this).attr("href"));
@@ -32,10 +30,7 @@ scope.navDivs = scope.navMenuItems.map(function(){
 
 	// toggle settings menu
 	$('#settings-tab').click(function() {
-		$(this).parent().animate({
-			right:$(this).hasClass('active') ? scope.settingsRight + 'px' : '0'
-		}, 300);
-		$(this).toggleClass('active');
+		$(this).parent().toggleClass('active');
 	});
 
 	// toggle light/dark color scheme
@@ -163,7 +158,6 @@ function mediaQueries()
 
 	// settings menu - anchor shows small cog icon
 	$('#settings-tab').html('<a><span class="icon-cog"></span></a>');
-	scope.settingsRight = -141;
 
 	// middle size
 	if (matchMedia("(min-width: 40.5em)").matches)
@@ -177,7 +171,6 @@ function mediaQueries()
 	{
 		// settings menu - anchor shows full "settings" text
 		$('#settings-tab').html('<a>settings</a>');
-		scope.settingsRight = -135;
 	}
 };
 
