@@ -33,55 +33,48 @@ scope.navDivs = scope.navMenuItems.map(function(){
 		$(this).parent().toggleClass('active');
 	});
 
+	// add active/inactive toggle to all links in the settings pane
+	$('#settings-pane a').click(function() {
+		$(this).addClass("active").siblings().removeClass("active");
+	});
+
 	// toggle light/dark color scheme
 	$('#dark').click(function() {
-		$('#dark').addClass('active');
-		$('#light').removeClass('active');
 		$('#page').animate({ backgroundColor:'#333', color:'#ddd' }, 500);
 		$('#scrollbar').animate({ borderColor:'#333', backgroundColor:'#ddd' }, 500);
 	});
 	$('#light').click(function() {
-		$('#light').addClass('active');
-		$('#dark').removeClass('active');
 		$('#page').animate({ backgroundColor:'#e0e0e0', color:'#484848' }, 500);
 		$('#scrollbar').animate({ borderColor:'#e0e0e0', backgroundColor:'#484848' }, 500);
 	});
 
 	// toggle lowercase/uppercase headers
 	$('#lower').click(function() {
-		$('#lower').addClass('active');
-		$('#upper').removeClass('active');
 		$('#nav,#settings,h2,h3').css('text-transform', 'lowercase');
 	});
 	$('#upper').click(function() {
-		$('#upper').addClass('active');
-		$('#lower').removeClass('active');
 		$('#nav,#settings,h2,h3').css('text-transform', 'uppercase');
 	});
 
 	// toggle normal/bold links on left side
 	$('#weight-normal').click(function() {
-		$('#weight-normal').addClass('active');
-		$('#weight-bold').removeClass('active');
 		$('#nav,#settings').css('font-weight', 'normal');
 	});
 	$('#weight-bold').click(function() {
-		$('#weight-bold').addClass('active');
-		$('#weight-normal').removeClass('active');
 		$('#nav,#settings').css('font-weight', 'bold');
 	});
 
 	// toggle link colors
-	$('#red').click({ divId:'#red', color:'red' }, setLinkColor);
-	$('#blue').click({ divId:'#blue', color:'blue' }, setLinkColor);
-	$('#green').click({ divId:'#green', color:'green' }, setLinkColor);
+	$('#red').click({ color:'red' }, setLinkColor);
+	$('#blue').click({ color:'blue' }, setLinkColor);
+	$('#green').click({ color:'green' }, setLinkColor);
 
 	// set font
-	$('#open-sans').click({ divId:'#open-sans', font:'Open Sans' }, setFont);
-	$('#lato').click({ divId:'#lato', font:'Lato' }, setFont);
-	$('#droid-sans').click({ divId:'#droid-sans', font:'Droid Sans' }, setFont);
-	$('#pt-sans-narrow').click({ divId:'#pt-sans-narrow', font:'PT Sans Narrow' }, setFont);
-	$('#oxygen').click({ divId:'#oxygen', font:'Oxygen' }, setFont);
+	$('#open-sans').click(function() { $('#page').css('font-family', 'Open Sans'); });
+	$('#lato').click(function() { $('#page').css('font-family', 'Lato'); });
+	$('#droid-sans').click(function() { $('#page').css('font-family', 'Droid Sans'); });
+	$('#pt-sans-narrow').click(function() { $('#page').css('font-family', 'PT Sans Narrow'); });
+	$('#oxygen').click(function() { $('#page').css('font-family', 'Oxygen'); });
 
 	//
 	// end click events
@@ -214,17 +207,8 @@ function toggleNav()
 		.toggleClass('active');
 }
 
-function setFont(e)
-{
-		$('.set-font a').removeClass('active');
-		$(e.data.divId).addClass('active');
-		$('#page').css('font-family', e.data.font);
-};
-
 function setLinkColor(e)
 {
-		$('.set-link-color a').removeClass('active');
-		$(e.data.divId).addClass('active');
 		$('#page').removeClass("red blue green");
 		$('#page').addClass(e.data.color);
 };
