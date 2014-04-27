@@ -31,8 +31,7 @@
 		box-shadow: none;
 	}
 
-	#settings-tab {
-		background-color: none;
+	#settings-btn {
 		width: 80px;
 		left: -82px;
 		padding: 0px;

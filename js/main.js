@@ -22,16 +22,14 @@ scope.navDivs = scope.navMenuItems.map(function(){
 
 	// click events
 	//
-	// nav menu items scroll to sections
+	// nav menu items scroll to their sections
 	scope.navMenuItems.click(function(e) {
 		$('html, body').animate({ scrollTop:$($(this).attr("href")).offset().top + 1 }, 300);
 		e.preventDefault();
 	});
 
-	// toggle settings menu
-	$('#settings-tab').click(function() {
-		$(this).parent().toggleClass('active');
-	});
+	// settings button toggles menu open/closed
+	$('#settings-btn').click(function() { $(this).parent().toggleClass('active'); });
 
 	// add active/inactive toggle to all links in the settings pane
 	$('#settings-pane a').click(function() {
@@ -39,13 +37,8 @@ scope.navDivs = scope.navMenuItems.map(function(){
 	});
 
 	// toggle light/dark color scheme
-	$('#dark').click(function() {
-		$('#page').animate({ backgroundColor:'#333', color:'#ddd' }, 500);
-		$('#scrollbar').animate({ borderColor:'#333', backgroundColor:'#ddd' }, 500);
-	});
-	$('#light').click(function() {
-		$('#page').animate({ backgroundColor:'#e0e0e0', color:'#484848' }, 500);
-		$('#scrollbar').animate({ borderColor:'#e0e0e0', backgroundColor:'#484848' }, 500);
+	$('#set-theme').click(function(e) {
+		$('#page, #scrollbar').removeClass("light dark").addClass(e.target.id.replace('#',''));
 	});
 
 	// toggle lowercase/uppercase headers
@@ -79,24 +72,6 @@ scope.navDivs = scope.navMenuItems.map(function(){
 	//
 	// end click events
 
-	// left nav link hover
-	var linkAnimateTime = 150;
-	$('#nav a').hover(
-		function() {
-			var id = $(this).attr('id');
-			var newColor = $('a.active').css('color');
-			if (id == "email")
-				newColor = "#F04C43";
-			else if (id == "github")
-				newColor = "#06C66B";
-			else if (id == "facebook")
-				newColor = "#44619D";
-			$(this).parent().animate({
-				color: newColor, "margin-left": "5px", borderBottomColor: newColor}, { duration: linkAnimateTime });
-		},
-		function() { $(this).parent().animate({
-			color: "#888", "margin-left": "0", borderBottomColor: "#888"}, { duration: linkAnimateTime }); }
-	);
 
 	// make the scrollbar draggable (adapted from jquery.slimscroll)
 	$('#scrollbar').bind("mousedown", function(e) {
@@ -150,7 +125,7 @@ function mediaQueries()
 	$("#nav").unbind("click").bind("click", toggleNav);
 
 	// settings menu - anchor shows small cog icon
-	$('#settings-tab').html('<a><span class="icon-cog"></span></a>');
+	$('#settings-btn').html('<a><span class="icon-cog"></span></a>');
 
 	// middle size
 	if (matchMedia("(min-width: 40.5em)").matches)
@@ -163,7 +138,7 @@ function mediaQueries()
 	if (matchMedia("(min-width: 64.5em)").matches)
 	{
 		// settings menu - anchor shows full "settings" text
-		$('#settings-tab').html('<a>settings</a>');
+		$('#settings-btn').html('<a>settings</a>');
 	}
 };
 
