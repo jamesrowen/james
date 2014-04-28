@@ -37,37 +37,29 @@ scope.navDivs = scope.navMenuItems.map(function(){
 	});
 
 	// toggle light/dark color scheme
-	$('#set-theme').click(function(e) {
+	$('#set-theme a').click(function(e) {
 		$('#page, #scrollbar').removeClass("light dark").addClass(e.target.id.replace('#',''));
 	});
 
 	// toggle lowercase/uppercase headers
-	$('#lower').click(function() {
-		$('#nav,#settings,h2,h3').css('text-transform', 'lowercase');
-	});
-	$('#upper').click(function() {
-		$('#nav,#settings,h2,h3').css('text-transform', 'uppercase');
+	$('#set-heading-case a').click(function(e) {
+		$('#nav,#settings,h2,h3').removeClass('lowercase uppercase').addClass(e.target.id.replace('#', ''));
 	});
 
-	// toggle normal/bold links on left side
-	$('#weight-normal').click(function() {
-		$('#nav,#settings').css('font-weight', 'normal');
-	});
-	$('#weight-bold').click(function() {
-		$('#nav,#settings').css('font-weight', 'bold');
+	// toggle normal/bold font
+	$('#set-font-weight a').click(function(e) {
+		$('#nav,#settings').removeClass('weight-normal weight-bold').addClass(e.target.id.replace('#', ''));
 	});
 
-	// toggle link colors
-	$('#red').click({ color:'red' }, setLinkColor);
-	$('#blue').click({ color:'blue' }, setLinkColor);
-	$('#green').click({ color:'green' }, setLinkColor);
+	// set link/button text color
+	$('#set-link-color a').click(function(e) {
+		$('#page').removeClass("red blue green").addClass(e.target.id.replace('#',''));
+	});
 
-	// set font
-	$('#open-sans').click(function() { $('#page').css('font-family', 'Open Sans'); });
-	$('#lato').click(function() { $('#page').css('font-family', 'Lato'); });
-	$('#droid-sans').click(function() { $('#page').css('font-family', 'Droid Sans'); });
-	$('#pt-sans-narrow').click(function() { $('#page').css('font-family', 'PT Sans Narrow'); });
-	$('#oxygen').click(function() { $('#page').css('font-family', 'Oxygen'); });
+	// set link/button text color
+	$('#set-font a').click(function(e) {
+		$('#page').removeClass("open-sans lato droid-sans pt-sans-narrow oxygen").addClass(e.target.id.replace('#',''));
+	});
 
 	//
 	// end click events
@@ -122,22 +114,22 @@ function mediaQueries()
 	// mobile - default
 
 	// left menu - click on it to open/close
-	$("#nav").unbind("click").bind("click", toggleNav);
+	$("#nav").unbind("click").click(function() { $(this).toggleClass('active'); });
 
-	// settings menu - anchor shows small cog icon
+	// settings button shows small cog icon
 	$('#settings-btn').html('<a><span class="icon-cog"></span></a>');
 
 	// middle size
 	if (matchMedia("(min-width: 40.5em)").matches)
 	{
-		// left menu - remove click event and styles it may have applied
-		$("#nav").unbind("click").removeClass('active').removeAttr('style');
+		// nav menu - no click event
+		$("#nav").unbind("click").removeClass('active');
 	}
 
 	// full size
 	if (matchMedia("(min-width: 64.5em)").matches)
 	{
-		// settings menu - anchor shows full "settings" text
+		// settings button shows "settings" text
 		$('#settings-btn').html('<a>settings</a>');
 	}
 };
@@ -149,7 +141,7 @@ function onScroll(e)
 
 	// set my scrollbar to the correct position
 	//
-	var barheight = $(window).height() - 40 - 59 - 10 - 15;
+	var barheight = $(window).height() - 40 - 59 - 10 - 15; // HACK: what the hell is this
 	$('#scrollbar').css('top', (59 + barheight * top / maxtop) + 'px');
 
 
@@ -168,22 +160,4 @@ function onScroll(e)
     scope.lastScrollDiv = id;
     scope.navMenuItems.removeClass("active").filter("[href=#"+id+"]").addClass("active");
   }
-};
-
-// slide the left nav pane in or out
-function toggleNav()
-{
-	var distInEM = 10.875;
-	var duration = 200;
-	var isNavOpen = $("#nav").hasClass('active');
-
-	$("#nav")
-		.animate({ left: isNavOpen ? -distInEM + 'em' : '0' }, duration)
-		.toggleClass('active');
-}
-
-function setLinkColor(e)
-{
-		$('#page').removeClass("red blue green");
-		$('#page').addClass(e.data.color);
 };

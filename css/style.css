@@ -1,13 +1,9 @@
 /* global styles */
-html {height: 100% }
-body {
-	height: 100%;
-	font: normal 100% "Oxygen", sans-serif;
-	color: #ddd;
-}
+html, body { height: 100% }
 
 #page {
 	margin-left: -190px;
+	font: normal 100% sans-serif;
 	border-color: #ddd;
 	-webkit-transition:
 		border-color .5s linear,
@@ -24,8 +20,17 @@ body {
 	background-color: #e0e0e0;
 	color: #484848;
 }
+#page.open-sans { font-family: "Open Sans"; }
+#page.lato { font-family: "Lato"; }
+#page.droid-sans { font-family: "Droid Sans"; }
+#page.pt-sans-narrow { font-family: "PT Sans Narrow"; }
+#page.oxygen { font-family: "Oxygen"; }
 
 .underline { border-bottom: 1px solid; }
+.lowercase { text-transform: lowercase; }
+.uppercase { text-transform: uppercase; }
+.weight-normal { font-weight: normal; }
+.weight-bold { font-weight: bold; }
 
 
 /* links */
@@ -76,9 +81,10 @@ a {
 	color: #888;
 	border-right: 1px solid #ddd;
 	background-color:inherit;
-	font-weight: bold;
 	z-index: 1000;
 	box-shadow: 1px 1px 2px #555;
+	-webkit-transition: left .2s;
+	transition: left .2s;
 }
 @media screen and (min-height: 20em) {
 	#nav { padding-top:2em; }
@@ -86,6 +92,7 @@ a {
 @media screen and (min-height: 37.5em) {
 	#nav { padding-top:2.5em; }
 }
+#nav.active { left: 0; }
 
 #nav a {
 	-webkit-transition:
@@ -111,7 +118,10 @@ a {
 	#nav-links { bottom:8.5em; }
 }
 
-#nav-links a { display:block; border-bottom:1px solid; }
+#nav-links a {
+	display:block;
+	border-bottom:1px solid;
+}
 
 #scrollbar {
 	position:absolute;
@@ -216,7 +226,6 @@ img.project-image {
 	padding-right: 10px;
 	color: #888;
 	background-color: inherit;
-	font-weight: bold;
 	box-shadow: -1px 1px 2px #555;
 	-webkit-transition: right .3s;
 	transition: right .3s;
@@ -242,10 +251,11 @@ img.project-image {
 	box-shadow: -1px 1px 2px #555;
 }
 
+/* force menu buttons to retain their particular style when not active */
 #light { color:#bbb }
 #dark { color:#333 }
-#lower { text-transform:lowercase !important }
-#upper { text-transform:uppercase !important }
+#lowercase { text-transform:lowercase !important }
+#uppercase { text-transform:uppercase !important }
 #weight-bold { font-weight:bold !important }
 #weight-normal { font-weight:normal !important }
 #open-sans { font-family: "Open sans" }
