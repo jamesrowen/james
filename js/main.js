@@ -29,7 +29,7 @@ scope.navDivs = scope.navMenuItems.map(function(){
 	});
 
 	// settings button toggles menu open/closed
-	$('#settings-btn').click(function() { $(this).parent().toggleClass('active'); });
+	$('#settings-btn').click(function() { $(this).toggleClass('active').parent().toggleClass('active'); });
 
 	// add active/inactive toggle to all links in the settings pane
 	$('#settings-pane a').click(function() {
@@ -116,8 +116,8 @@ function mediaQueries()
 	// left menu - click on it to open/close
 	$("#nav").unbind("click").click(function() { $(this).toggleClass('active'); });
 
-	// settings button shows small cog icon
-	$('#settings-btn').html('<a><span class="icon-cog"></span></a>');
+	// show cog icon for settings menu button
+	$('#settings-link').html('<div class="icon-cog"></div>');
 
 	// middle size
 	if (matchMedia("(min-width: 40.5em)").matches)
@@ -127,10 +127,10 @@ function mediaQueries()
 	}
 
 	// full size
-	if (matchMedia("(min-width: 64.5em)").matches)
+	if (matchMedia("(min-width: 70em)").matches)
 	{
-		// settings button shows "settings" text
-		$('#settings-btn').html('<a>settings</a>');
+		// show "settings" text for settings menu button
+		$('#settings-link').html('settings');
 	}
 };
 

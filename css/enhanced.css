@@ -18,9 +18,9 @@
 	.post-content { padding-left:2em; }
 }
 
-/* >1024px ~ desktop */
-@media (min-width: 64.5em) {
-	#content { margin-right:7.5em; }
+/* full size */
+@media (min-width: 70em) {
+	#content { margin-right:12.5em; }
 	.post { padding:2.5em 0; }
 	.post-content { padding-left:2.5em; }
 
@@ -32,11 +32,18 @@
 	}
 
 	#settings-btn {
-		width: 80px;
-		left: -82px;
+		background-color: transparent;
+		width: 85px;
+		left: -87px;
 		padding: 0px;
 		border-left: none;
 		border-top: none;
 		box-shadow: none;
+	}
+	#settings-btn.active {
+		transform: rotate(-90deg);
+		-ms-transform:rotate(-90deg);
+		-webkit-transform:rotate(-90deg);
+		left: -54px;
 	}
 }
