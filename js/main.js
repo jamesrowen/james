@@ -58,11 +58,8 @@ scope.navDivs = scope.navMenuItems.map(function(){
 
 	// set link/button text color
 	$('#set-font a').click(function(e) {
-		$('#page').removeClass("open-sans lato droid-sans pt-sans-narrow oxygen").addClass(e.target.id.replace('#',''));
+		$('#page').removeClass("open-sans lato droid-sans oxygen").addClass(e.target.id.replace('#',''));
 	});
-
-	//
-	// end click events
 
 
 	// make the scrollbar draggable (adapted from jquery.slimscroll)
@@ -117,7 +114,7 @@ function mediaQueries()
 	$("#nav").unbind("click").click(function() { $(this).toggleClass('active'); });
 
 	// show cog icon for settings menu button
-	$('#settings-link').html('<div class="icon-cog"></div>');
+	$('#settings-link').html('&gt;');
 
 	// middle size
 	if (matchMedia("(min-width: 40.5em)").matches)
@@ -140,13 +137,11 @@ function onScroll(e)
 	var maxtop = $('#content').height() - $(window).height();
 
 	// set my scrollbar to the correct position
-	//
 	var barheight = $(window).height() - 40 - 59 - 10 - 15; // HACK: what the hell is this
 	$('#scrollbar').css('top', (59 + barheight * top / maxtop) + 'px');
 
 
 	// update scrollspy on nav menu
-	//
 	// get all nav divs above the current position
   var cur = scope.navDivs.map(function() {
     if ($(this).offset().top <= Math.max(top, 0))

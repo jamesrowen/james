@@ -3,9 +3,9 @@
 
 	<head>
 		<meta charset="utf-8" />
-		<title>james rowen ▼ home</title>
+		<title>james rowen</title>
 		<meta name="author" content="James Rowen" />
-		<meta name="description" content="James Rowen ▼ Software Developer ▼ Austin TX" />
+		<meta name="description" content="My personal website" />
 		<meta name="viewport" content="width=device-width, user-scalable=no">
 		<link rel="icon" type="image/png" href="icon.png" />
 
@@ -16,21 +16,20 @@
 		<link rel="stylesheet" type="text/css" href="css/enhanced.css" />
 		<![endif]-->
 
-		<link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700|Lato:400italic,400,700|Droid+Sans:400italic,400,700|PT+Sans+Narrow:400italic,400,700|Oxygen:400italic,400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
-
+		<link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700|Lato:400italic,400,700|Droid+Sans:400italic,400,700|Oxygen:400italic,400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
 	</head>
 
 	<body>
 
-		<div id="page" class="blue dark oxygen">
+		<div id="page" class="red light oxygen">
 
 			<div id="nav" class="weight-bold">
 				<div id="nav-main">
 					<h1 class="underline">james rowen</h1>
 					<ul>
-						<li><a class="active" href="#about">about</a></li>
 						<li><a href="#projects">projects</a></li>
+						<li><a class="active" href="#about">about</a></li>
 						<li><a href="#writing">writing</a></li>
 						<li><a href="#resume">résumé</a></li>
 					</ul>
@@ -39,68 +38,40 @@
 				<div id="nav-links">
 					<ul>
 						<li><a id="email" href="mailto:jamesrowen@gmail.com">email</a></li>
-						<li><a id="github" href="http://github.com/jamesrowen">github</a></li>
-						<li><a id="facebook" href="http://facebook.com/jameslrowen">facebook</a></li>
+						<li><a id="github" href="https://github.com/jamesrowen">github</a></li>
+						<li><a id="linkedin" href="https://www.linkedin.com/in/jamesrowen/">linkedin</a></li>
 					</ul>
 				</div>
 
-				<div id="scrollbar" class="dark"></div>
-
-			</div> <!-- end nav -->
-
+				<div id="scrollbar" class="light"></div>
+			</div>
 
 			<div id="content">
-
-				<div id="about" class="post">
-					<h2 class="underline">about</h2>
-					<h3>&nbsp;</h3>
-					<div class="post-content">
-						<img src="img/black_butte_oregon_800.jpg">
-						Hi, I'm James, a software developer hailing from the mountains of the
-						<a href="http://en.wikipedia.org/wiki/Reno,_Nevada">Sierra Nevada</a> and
-						currently living in Austin, TX. I work at <a href="http://www.accruent.com">Accruent</a>,
-						coding on an enterprise SaaS product providing mission-critical support to the wireless industry. My interests include
-						javascript (node.js, angularJS, etc), modern web development, software architecture, tools,
-						artificial intelligence, and game development.
-					</div>
-				</div>
-
 				<div id="projects" class="post">
 					<h2 class="underline">projects</h2>
 					<h3>&nbsp;</h3>
 					<div class="post-content">
 
-						<h4>My site&nbsp;&nbsp;-&nbsp;&nbsp;<a href="https://github.com/jamesrowen/my-site">source</a></h4>
+						<a href="tiles/index.html"><img src="img/tiles_800.png"></a>
+						<h4>Tiles&nbsp;&nbsp;-&nbsp;&nbsp;<a href="tiles/index.html">demo</a>&nbsp;&nbsp;-&nbsp;&nbsp;<a href="https://github.com/jamesrowen/tiles">source</a></h4>
 						<div class="project-blurb">
-							<img class="project-image" src="img/my_site_200.png">
-							<div class="project-text">
-								This site is a static page of handwritten HTML/CSS/JS, striving to incorporate modern best practices.
-								It is constantly evolving as I learn, experiment, tweak, and embellish.
-							</div>
+							A spinning tile visualization made with the <a href="https://p5js.org">p5.js</a> drawing library,
+							with a custom-made control interface for creating a wide variety of interesting patterns.
 						</div>
 
-						<h4>DICOMbinator&nbsp;&nbsp;-&nbsp;&nbsp;
-							<a href="http://dicombinator.jit.su">demo</a>&nbsp;&nbsp;-&nbsp;&nbsp;
-							<a href="https://github.com/jamesrowen/dicombinator">source</a>
-						</h4>
+						<a href="https://youtu.be/_6Cyqyoxiyo"><img src="img/zigzag_800.jpg"></a>
+						<h4>Zigzag&nbsp;&nbsp;-&nbsp;&nbsp;<a href="https://youtu.be/_6Cyqyoxiyo">video</a></h4>
 						<div class="project-blurb">
-							<img class="project-image" src="img/dicombinator_200.png">
-							<div class="project-text">
-								A webapp for viewing and collaboratively annotating DICOM medical images. Runs on node.js
-								with socket.io WebSockets for real time communication. I developed this at a hackathon with
-								three strangers over 24 hours.
-							</div>
+							LED installation with custom-made software and controller for modulating patterns. Made with the Teensy microcontroller.
 						</div>
+					</div>
+				</div>
 
-						<h4>Scholarly Conduct&nbsp;&nbsp;-&nbsp;&nbsp;<a href="https://bitbucket.org/jamesrowen/scholarly-conduct">source</a></h4>
-						<div class="project-blurb">
-							<img class="project-image" src="img/scholarly_conduct_200.jpg">
-							<div class="project-text">
-								A 3D RTS/Sim game created with C#, XNA, and Blender.
-								The player takes control of fledgling university, deciding which programs to build.
-								Students controlled by the computer will register, learn to gain abilities, and fight for school pride.
-							</div>
-						</div>
+				<div id="about" class="post">
+					<h2 class="underline">about</h2>
+					<h3>&nbsp;</h3>
+					<div class="post-content">
+						James is a software developer based on the west coast, with experience in the JavaScript ecosystem (node, React, Redux, etc), as well as C#, C++, SQL, and other technologies. Areas of interest include web development, tools, artificial intelligence, and visualizations.
 					</div>
 				</div>
 
@@ -116,23 +87,46 @@
 					<h2 class="underline">résumé</h2>
 					<h3>&nbsp;</h3>
 					<div class="post-content">
-						<a class="btn" href="files/james-rowen-resume.pdf"><span class="icon-download"></span>&nbsp;&nbsp;PDF</a>
+						<a class="btn" href="files/james-rowen-resume.pdf"></span>&nbsp;&nbsp;PDF</a>
+						<br>
+
+						<h4>james rowen / software developer</h4>
+						javascript / node.js / html / css / c# / c++ / python / sql / git
 
 						<div class="resume-section">
-							<h4 class="underline">strengths</h4>
-							<ul>
-								<li>javascript / node.js / html / css / c# / c++ / python / sql / git / various</li>
-								<li>Learning - constantly curious, driven to acquire a diverse and deep knowledge base.</li>
-								<li>Analysis - able to dig into problems, understand how they work, and develop solutions.</li>
-								<li>Initiative - will identify processes that can be improved and take action to make that happen.</li>
-								<li>Collaboration - effective listener, can understand and communicate with people of all types.</li>
-							</ul>
+							<h4 class="underline">summary</h4>
+								Experience designing and maintaining web applications on a variety of tech stacks, from small tools to business-critical SaaS products, most recently focused on the JS ecosystem. Ability to dive in and get up to speed quickly on new projects and technologies. Comfortable wearing multiple hats and working on cross-functional teams.
 						</div>
 
 						<div class="resume-section">
 							<h4 class="underline">experience</h4>
-							<h5>Software Engineer (2012 - Present)</h5>
-							<a href="http://www.accruent.com" target="_blank">Accruent</a><br />
+							<div class="experience-heading">
+								<div>
+									<h5>Software Development Engineer</h5>
+									<a href="http://www.yahoo.com" target="_blank">Yahoo</a>
+								</div>
+								<div>
+									<h5>2014 - 2016</h5>
+									Sunnyvale, CA
+								</div>
+							</div>
+							<ul>
+								<li>Designed and developed an internal analytics front-end using React, Redux, and D3.js.</li>
+								<li>Developed mini javascript apps adding interactivity to search results (e.g. a mortgage calculator).</li>
+								<li>Contributed to a next-gen rewrite of the mobile search front-end.</li>
+								<li>Helped administer the testing, hosting, and CI/CD pipeline for projects I worked on.</li>
+							</ul>
+
+							<div class="experience-heading">
+								<div>
+									<h5>Software Engineer</h5>
+									<a href="http://www.accruent.com" target="_blank">Accruent</a>
+								</div>
+								<div>
+									<h5>2012 - 2014</h5>
+									Austin, TX
+								</div>
+							</div>
 							<ul>
 								<li>Quickly became an integral member of the dev team of a successful enterprise SaaS product.</li>
 								<li>Designed, developed, and maintained the most complex set of feeds and integrations implemented on the product.</li>
@@ -140,56 +134,58 @@
 								<li>Initiated and led a team of engineers tasked with supporting client implementations and custom development requests.</li>
 							</ul>
 
-							<h5>Freelance Web Developer (2011 - 2012)</h5>
+							<div class="experience-heading">
+								<div>
+									<h5>Website Developer</h5>
+									Freelance
+								</div>
+								<div>
+									<h5>2011 - 2012</h5>
+									Reno, NV
+								</div>
+							</div>
 							<ul>
 								<li>Designed and developed websites for local businesses (primarily Wordpress).</li>
 								<li>Implemented and maintained custom eCommerce storefronts.</li>
 								<li>Worked with clients to understand their needs and design proposals.</li>
-							</ul>
-
-							<h5>Undergraduate Researcher (2010)</h5>
-							Evolutionary Computing Systems Lab, UNR
-							<ul>
-								<li>Worked in a lab developing AI for Navy virtual training scenarios.</li>
-								<li>Implemented pathfinding and course navigation for boats in a physics-based simulation.</li>
-								<li>Gained experience contributing to a Python/C++ code repository.</li>
 							</ul>
 						</div>
 
 						<div class="resume-section">
 							<h4 class="underline">projects</h4>
 							<ul>
-								<li>This site is handwritten HTML/CSS/JS/jQuery, utilizing responsive design and modern best practices.</li>
-								<li><a href="https://github.com/jamesrowen/dicombinator">DICOMbinator</a> is a web app for annotating medical (DICOM) images with real-time communication and an intuitive interface. Developed for a 24 hour hackathon, using node.js and socket.io.</li>
-								<li>Scholarly Conduct is a 3D RTS/Sim game where the player builds up a university, and Sim-like students register, learn, and compete to bring prestige to their school. It was developed during my final year of undergrad, using C# and XNA.</li>
+								<li><a href="tiles/index.html">Tiles</a> is a visualization made using p5.js, with a custom interface for creating a variety of patterns.</li>
+								<li>This site is handwritten HTML/CSS/JS/jQuery, utilizing responsive design and modern practices.</li>
+								<li><a href="https://github.com/jamesrowen/dicombinator">DICOMbinator</a>, a web app for annotating DICOM images with real-time communication, was the winner of a SXSW Interactive 24 hour hackathon in 2012. Node.js with socket.io.</li>
 							</ul>
 						</div>
 
 						<div class="resume-section">
 							<h4 class="underline">education</h4>
 							<h5>Bachelor of Science, Computer Science (2007 - 2011)</h5>
-							University of Nevada, Reno<br />
-							Minors in Mathematics and Digital Interactive Games<br />
+							University of Nevada
+							<ul>
+								<li>Minors in Mathematics and Digital Interactive Games</li>
+								<li>Worked in the <a href="http://ecsl.cse.unr.edu/">Evolutionary Computing Systems Lab</a> on AI for virtual Navy training scenarios.</li>
+							</ul>
 						</div>
 					</div>
 				</div>
 
 				<div class="post">
-					<h3 class="underline">james rowen 2014</h3>
+					<h3 class="underline">james rowen 2018</h3>
 				</div>
 
-			</div> <!-- end content -->
-
+			</div>
 
 			<div id="settings" class="weight-bold">
-
 				<div id="settings-btn">
-					<a id="settings-link"><div class="icon-cog"></div></a>
+					<a id="settings-link">&gt;</a>
 				</div>
 				<div id="settings-pane">
 					<div id="set-theme" class="underline">
-						<a id="light">light</a>&nbsp;&nbsp;&nbsp;
-						<a id="dark" class="active">dark</a>
+						<a id="light" class="active">light</a>&nbsp;&nbsp;&nbsp;
+						<a id="dark">dark</a>
 					</div>
 					<div id="set-heading-case" class="underline">
 						<a id="lowercase" class="active">lower</a>&nbsp;&nbsp;&nbsp;
@@ -203,19 +199,17 @@
 						<a id="open-sans">open sans</a><br>
 						<a id="lato">lato</a><br>
 						<a id="droid-sans">droid sans</a><br>
-						<a id="pt-sans-narrow">pt sans narrow</a><br>
 						<a id="oxygen" class="active">oxygen</a>
 					 </div>
 					<div id="set-link-color" class="underline">
-						<a id="red">red</a>&nbsp;
-						<a id="blue" class="active">blue</a>&nbsp;
+						<a id="red" class="active">red</a>&nbsp;
+						<a id="blue">blue</a>&nbsp;
 						<a id="green">green</a>&nbsp;
 					</div>
 				</div>
+			</div>
 
-			</div> <!-- end settings widget -->
-
-		</div> <!-- end page -->
+		</div>
 
 		<script src="js/matchMedia.js" type="text/javascript"></script>
 		<script src="js/main.js" type="text/javascript"></script>
