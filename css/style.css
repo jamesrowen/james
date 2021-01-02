@@ -4,7 +4,9 @@ html, body { height: 100% }
 #page {
 	margin-left: -190px;
 	font: normal 100% sans-serif;
+	line-height: 1.4;
 	border-color: #ddd;
+	min-height: 100%;
 	-webkit-transition:
 		border-color .5s linear,
 		background-color .5s linear;
@@ -17,7 +19,7 @@ html, body { height: 100% }
 	color: #eee;
 }
 #page.light {
-	background-color: #e4e4e2;
+	background-color: #e7e5e1;
 	color: #333;
 }
 #page.open-sans { font-family: "Open Sans"; }
@@ -173,10 +175,9 @@ a {
 }
 
 .post h4 {
-	font-size: 1.2em;
-	margin-top: 2px;
-	margin-bottom: .4em;
-	padding-bottom: 3px;
+	font-size: 1.5em;
+	margin-top: .1em;
+	margin-bottom: .1em;
 	font-weight: bold;
 }
 
@@ -191,14 +192,14 @@ a {
 	display: inline-block;
 	width: 100%;
 	margin: 2px 0;
-	border-right: 1px solid;
+	border: 1px solid #888;
 }
 
 .post-content { padding-left: .625em; }
 
 .project-blurb {
 	border-bottom: 1px solid;
-	padding: .1em 0 .25em 0;
+	padding: .3em 0;
 	margin-bottom: 2.5em;
 }
 

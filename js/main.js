@@ -9,11 +9,11 @@ scope.navDivs = scope.navMenuItems.map(function(){
 		if (item.length) { return item; }
 	});
 
-(function(window) {
+// scrollbar stuff
+var minScrollPos = 59;
+var maxScrollPos = $(window).height() - 40 - 25;
 
-	// scrollbar stuff
-	var minScrollPos = 59;
-	var maxScrollPos = $(window).height() - 40 - 25;
+(function(window) {
 
 	// resize and scroll events
 	onResize();
@@ -133,18 +133,15 @@ function mediaQueries()
 
 function onScroll(e)
 {
-	var top = $(document).scrollTop();
-	var maxtop = $('#content').height() - $(window).height();
-
 	// set my scrollbar to the correct position
-	var barheight = $(window).height() - 40 - 59 - 10 - 15; // HACK: what the hell is this
-	$('#scrollbar').css('top', (59 + barheight * top / maxtop) + 'px');
-
+	var scrollPct = $(document).scrollTop() / ($('#content').height() - $(window).height());
+	var trackHeight = $(window).height() - minScrollPos - 50;
+	$('#scrollbar').css('top', (minScrollPos + trackHeight * scrollPct) + 'px');
 
 	// update scrollspy on nav menu
 	// get all nav divs above the current position
   var cur = scope.navDivs.map(function() {
-    if ($(this).offset().top <= Math.max(top, 0))
+    if ($(this).offset().top <= Math.max($(document).scrollTop(), 0))
       return this;
   });
   // get the last div above the current position

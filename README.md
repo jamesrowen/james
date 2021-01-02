@@ -1,15 +1,13 @@
-my-site
+my site
 =======
 
-[jamesrowen.me](http://jamesrowen.me)
+[james.js.org](https://james.js.org)
 
-My personal website. HTML/CSS/JS/jQuery, with inspiration and bits of code from various places.
-
-some features:
+My personal website. HTML/CSS/JS/jQuery/Jekyll.
 
 - minimal aesthetic
-- responsive design: media queries, fluid images, relative sizes
-- settings console to customize look and feel
+- responsive design
+- settings console
 
 some todos:
 
