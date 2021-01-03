@@ -20,14 +20,14 @@ html, body { height: 100% }
 }
 #page.light {
 	background-color: #e7e5e1;
-	color: #333;
+	color: #272919;
 }
 #page.open-sans { font-family: "Open Sans"; }
 #page.lato { font-family: "Lato"; }
 #page.droid-sans { font-family: "Droid Sans"; }
 #page.oxygen { font-family: "Oxygen"; }
 
-.underline { border-bottom: 1px solid; }
+.underline { border-bottom: 1px solid #888; }
 .lowercase { text-transform: lowercase; }
 .uppercase { text-transform: uppercase; }
 .weight-normal { font-weight: normal; }
@@ -39,34 +39,77 @@ a {
 	text-decoration: none;
 	color: #888;
 	cursor: pointer;
-	-webkit-transition: color .15s linear;
-	transition: color .15s linear;
+	-webkit-transition: color .2s ease-out;
+	transition: color .2s ease-out;
+}
+a.project-link {
+	font-size: .6em;
 }
 
-.red a.active { color:#D83C14 !important; font-weight:bold; }
-.red #content a, .red a:hover { color:#D83C14 }
-.blue a.active { color:#2cc3dc !important; font-weight:bold; }
-.blue #content a, .blue a:hover { color:#2cc3dc }
-.green a.active { color:#06BA8F !important; font-weight:bold; }
-.green #content a, .green a:hover { color:#06BA8F }
+.red a.active {
+	color: #b33211 !important;
+	font-weight: bold;
+}
+.red #content a,
+.red a:hover,
+#red:hover,
+.red .post a:hover + h4 {
+	color: #b33211;
+}
+.red .post a:hover img {
+	border-color: #b33211;
+}
+
+.blue a.active {
+	color: #1f8fa2 !important;
+	font-weight: bold;
+}
+.blue #content a,
+.blue a:hover,
+#blue:hover,
+.blue .post a:hover + h4 {
+	color: #1f8fa2;
+}
+.blue .post a:hover img {
+	border-color: #1f8fa2;
+}
+
+.green a.active {
+	color: #05a881 !important;
+	font-weight: bold;
+}
+.green #content a,
+.green a:hover,
+#green:hover,
+.green .post a:hover + h4 {
+	color: #05a881;
+}
+.green .post a:hover img {
+	border-color: #05a881;
+}
+
+#content a:hover {
+	color: #d18f03;
+}
 
 .btn {
 	display: block;
 	text-align: center;
+	font-weight: bold;
 	width: 60px;
 	background-color: #ddd;
 	padding: 10px 20px;
-	border-radius: 5px;
+	border-radius: 3px;
 	-webkit-transition:
-		color .2s linear,
-		background-color .2s linear;
+		color .2s ease-out,
+		background-color .2s ease-out;
 	transition:
-		color .2s linear,
-		background-color .2s linear;
+		color .2s ease-out,
+		background-color .2s ease-out;
 }
 
 .btn:hover {
-	background-color: #fff;
+	background-color: #eee;
 }
 
 /* nav panel */
@@ -145,7 +188,7 @@ a {
 }
 #scrollbar.light {
 	border-color: #e4e4e2;
-	background-color: #333;
+	background-color: #272919;
 	right: -10px;
 }
 
@@ -170,7 +213,6 @@ a {
 .post h3 {
 	line-height: 1.7;
 	color: #888;
-	border-color: inherit;
 	text-align: right;
 }
 
@@ -179,6 +221,8 @@ a {
 	margin-top: .1em;
 	margin-bottom: .1em;
 	font-weight: bold;
+	-webkit-transition: color .2s ease-out;
+	transition: color .2s ease-out;
 }
 
 .post h5 {
@@ -193,12 +237,14 @@ a {
 	width: 100%;
 	margin: 2px 0;
 	border: 1px solid #888;
+	-webkit-transition: border-color .2s ease-out;
+	transition: border-color .2s ease-out;
 }
 
 .post-content { padding-left: .625em; }
 
 .project-blurb {
-	border-bottom: 1px solid;
+	border-bottom: 1px solid #888;
 	padding: .3em 0;
 	margin-bottom: 2.5em;
 }
@@ -271,16 +317,13 @@ img.project-image {
 }
 
 /* force menu buttons to retain their particular style when not active */
-#light { color:#bbb }
-#dark { color:#222 }
-#lowercase { text-transform:lowercase !important }
-#uppercase { text-transform:uppercase !important }
-#weight-bold { font-weight:bold !important }
-#weight-normal { font-weight:normal !important }
+#light { color: #bbb }
+#dark { color: #222 }
+#lowercase { text-transform: lowercase !important }
+#uppercase { text-transform: uppercase !important }
+#weight-bold { font-weight: bold !important }
+#weight-normal { font-weight: normal !important }
 #open-sans { font-family: "Open sans" }
 #lato { font-family: "Lato"; }
 #droid-sans { font-family: "Droid Sans"; }
 #oxygen { font-family: "Oxygen"; }
-#red:hover { color: #D83C14; }
-#blue:hover { color: #2cc3dc; }
-#green:hover { color: #06BA8F; }
