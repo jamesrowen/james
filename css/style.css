@@ -1,5 +1,7 @@
 /* global styles */
 html, body { height: 100% }
+p { margin-bottom: 1.2em; }
+p.caption { text-align: center; font-size: .9em; }
 
 #page {
 	margin-left: -190px;
@@ -112,12 +114,14 @@ a.project-link {
 }
 
 /* lists */
-.post ul { margin: 16px 15px 16px 31px; }
-#resume ul { margin: 10px 15px 10px 31px; }
+.post ul {
+	list-style: square;
+	margin: 1.2em 2em;
+}
+#resume ul { margin: .6em 2em; }
 #nav ul { list-style: none; margin-top: 2px; }
 
-.post li { margin-bottom: .6em; }
-#resume li { margin-bottom: 0; }
+ul.spaced li { margin-bottom: .6em; }
 
 
 /* nav panel */
@@ -130,7 +134,7 @@ a.project-link {
 	font-size: 1.1em;
 	padding: 1.5em 0 0 1.5em;
 	line-height: 1.6;
-	color: #888;
+	color: #777;
 	border-right: 1px solid #ddd;
 	background-color: inherit;
 	z-index: 1000;
@@ -152,9 +156,9 @@ a.project-link {
 		color .15s linear;
 }
 #nav a:hover { margin-left: 5px; }
-#email:hover { color: #F04C43; }
-#github:hover { color: #06C66B; }
-#linkedin:hover { color: #0077B5; }
+#email:hover { color: #b33211; }
+#github:hover { color: #05a881; }
+#linkedin:hover { color: #1f8fa2; }
 
 #nav h1 { font-size:1.1em; font-weight:normal; }
 
@@ -224,8 +228,7 @@ a.project-link {
 
 .post h4 {
 	font-size: 1.5em;
-	margin-top: .1em;
-	margin-bottom: .1em;
+	margin: .2em 0 .1em;
 	font-weight: bold;
 	-webkit-transition: color .2s ease-out;
 	transition: color .2s ease-out;
