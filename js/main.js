@@ -5,12 +5,14 @@ var scope = {};
 scope.lastScrollDiv = "";
 scope.navMenuItems = $("#nav-main a");
 scope.navDivs = scope.navMenuItems.map(function(){
+	if ($(this).attr("href") !== "/") {
 		var item = $($(this).attr("href"));
 		if (item.length) { return item; }
-	});
+	}
+});
 
 // scrollbar stuff
-var minScrollPos = 59;
+var minScrollPos = 65;
 var maxScrollPos = $(window).height() - 40 - 25;
 
 (function(window) {

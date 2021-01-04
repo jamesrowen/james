@@ -28,9 +28,13 @@
 				<div id="nav-main">
 					<h1 class="underline">james rowen</h1>
 					<ul>
-						<li><a class="active" href="#projects">projects</a></li>
-						<li><a href="#about">about</a></li>
-						<li><a href="#resume">résumé</a></li>
+						{% if page.url == "/" %}
+							<li><a class="active" href="#projects">projects</a></li>
+							<li><a href="#about">about</a></li>
+							<li><a href="#resume">résumé</a></li>
+						{% else %}
+							<li><a href="/">home</a></li>
+						{% endif %}
 					</ul>
 				</div>
 
@@ -47,6 +51,10 @@
 
 			<div id="content">
 				{{ content }}
+
+				<div class="post">
+					<h3 class="underline">james rowen 2021</h3>
+				</div>
 			</div>
 
 			<div id="settings" class="weight-bold">
