@@ -7,22 +7,22 @@
 		padding-left: 2.5em;
 	}
 
-	.post { padding:1.5em 0; }
-	.post-content { padding-left:1.5em; }
+	.page-section { padding: 1.5em 0; }
+	.section-body { padding-left: 1.5em; }
 }
 
 /* 768-1024px ~ tablet landscape */
 @media (min-width: 48.5em) {
-	#content { margin-right:2.2em; }
-	.post { padding:2em 0; }
-	.post-content { padding-left:2em; }
+	#content { margin-right: 2.2em; }
+	.page-section { padding: 2em 0; }
+	.section-body { padding-left: 2em; }
 }
 
 /* full size */
 @media (min-width: 70em) {
-	#content { margin-right:12.5em; }
-	.post { padding:2.5em 0; }
-	.post-content { padding-left:2.5em; }
+	#content { margin-right: 12.5em; }
+	.page-section { padding: 2.5em 0; }
+	.section-body { padding-left: 2.5em; }
 
 	#settings {
 		right: -155px;
