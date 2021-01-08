@@ -21,8 +21,8 @@
 /* full size */
 @media (min-width: 70em) {
 	#content { margin-right: 12.5em; }
-	.page-section { padding: 2.5em 0; }
-	.section-body { padding-left: 2.5em; }
+	.page-section { padding: 2.7em 0; }
+	.section-body { padding-left: 2.7em; }
 
 	#settings {
 		right: -155px;

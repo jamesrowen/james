@@ -2,17 +2,6 @@
 html, body { height: 100% }
 p { margin-bottom: 1.2em; }
 p.caption { text-align: center; font-size: .9em; }
-code {
-	display: inline-block;
-	font-family: monospace;
-	font-weight: bold;
-	background-color: #e5e0da;
-	border: 1px solid #ccc;
-	border-radius: 2px;
-	padding: 2px 6px;
-	vertical-align: top;
-}
-.dark code { }
 .underline { border-bottom: 1px solid #888; }
 .lowercase { text-transform: lowercase; }
 .uppercase { text-transform: uppercase; }
@@ -25,6 +14,8 @@ code {
 #page {
 	margin-left: -190px;
 	font: normal 100% sans-serif;
+  background-color: #eae8e5;
+  color: #292719;
 	line-height: 1.4;
 	border-color: #ddd;
 	min-height: 100%;
@@ -38,10 +29,6 @@ code {
 #page.dark {
 	background-color: #222;
 	color: #eee;
-}
-#page.light {
-	background-color: #e7e5e1;
-	color: #272919;
 }
 #page.open-sans { font-family: "Open Sans", system-ui, sans-serif; }
 #page.lato { font-family: "Lato", system-ui, sans-serif; }
@@ -323,6 +310,19 @@ ul.spaced li { margin-bottom: .6em; }
 #droid-sans { font-family: "Droid Sans", system-ui, sans-serif; }
 #oxygen { font-family: "Oxygen", system-ui, sans-serif; }
 
+
+/* code */
+code {
+	display: inline-block;
+	font-family: monospace;
+	font-weight: bold;
+	background-color: #e5e0da;
+	border: 1px solid #ccc;
+	border-radius: 2px;
+	padding: 2px 6px;
+	vertical-align: top;
+}
+.dark code { }
 
 /* scrollbar */
 #scrollbar {

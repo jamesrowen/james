@@ -7,15 +7,18 @@ title: "project: tiles"
 	<div class="section-body">
 		<div class="largetext">
 			<h3>&nbsp;</h3>
-			<img src="img/tiles/tiles1.png">
+			<a href="/tiles"><img src="img/tiles/tiles1.png"></a>
 			<h3>&nbsp;</h3>
 			<div>
 				<p>
-					<a href="/tiles">Tiles</a> is an interactive visualization made with <a href="https://p5js.org">p5.js</a>.
-					A single tile is drawn repeatedly. By changing the orientation of the tile, many patterns emerge.
+					<a href="/tiles">Tiles</a> is an interactive browser-based visualization made with
+          <a href="https://p5js.org">p5.js</a>. Three distinct modes explore the striking visual effects
+          of a grid of rotating symmetrical tiles. A variety of tools allow the user to shape
+          the animation in exciting ways.
 				</p>
 				<p>
-					Three different modes are available, each exploring a different concept and UI with the same set of tiles.
+					Each mode contains a number of <b>presets</b> that demonstrate some of the possibilities.
+          I recommend clicking through them!
 				</p>
 			</div>
 		</div>
@@ -28,39 +31,23 @@ title: "project: tiles"
 		<div class="largetext">
 			<h3>&nbsp;</h3>
 			<p>
-				While browsing the Ikea clearance section, I came across some boxes of ceramic tiles in a few different
-				designs. One design interested me due to its symmetry, so I bought a couple boxes.
+				While browsing the clearance section at Ikea, I came across a rack of ceramic tiles
+        with various designs. The simple symmetry of one design in particular intrigued me,
+        so I bought a few boxes.
 			</p>
 			<p>
-				When I got home and laid them out on the table, I found that there were indeed many interesting patterns
-				to explore. But how could I choose just one to permanently affix them in? I envisioned a
-				large wall of tiles, each connected to a motor, allowing them to rotate freely to form any pattern.
+				Back at home I started arranging the tiles on a table, and found that there were indeed many
+        interesting patterns to explore. But how then could I choose just one configuration to permanently
+        fix them in? I envisioned a large wall of motorized tiles, each rotating independently, capable of
+        rearranging itself into any pattern.
 			</p>
 			<p>
-				I still would like to build this project, but in the interim I settled for the next best thing - simulating
-				it in software. This is the <b>pattern</b> mode in tiles. Each pattern is a function that assigns an orientation
-				to each tile (up, right, down, or left, represented as 0, 1, 2, 3).
-			</p>
+				I would still like to build this project, but in the interim I settled for the next best thing
+        - simulating it in software. This is the <b>pattern</b> mode in tiles, described below.
+      </p>
 			<p>
-				Transitions between patterns are then defined by simply rotating each tile from its orientation in pattern A to
-				its orientation in pattern B. Transition functions return a value from 0 to 1 for each tile, which determines the
-				point during the transition when it should start to rotate. Multiple transitions can be in effect simultaneously.
-			</p>
-			<p>
-				As of Dec 2020 I've created 19 patterns and 8 transitions, which can be viewed <a href="https://github.com/jamesrowen/tiles/blob/master/patterns.js">here</a>.
-				Most of them are pretty simple algebraic expressions, it's a fun puzzle trying to convert a pattern in your
-				head or on the table into a function. Countless more possibilities exist, adding pre-calculated
-				"bitmaps" and ultimately "videos" would be a logical next step.
-			</p>
-			<p>
-				By default, all tiles rotate clockwise. This creates a smooth effect that makes it easy to "follow" the transition.
-				When the <b>short</b> button is enabled, tiles that would rotate 270° will instead rotate 90° the other direction.
-				This creates a more "magic-like" effect where the patterns cohere and decohere.
-			</p>
-			<p>
-				Eventually features were added that went beyond reasonable physical capabilities, such as overlapping transparent
-				tiles and three-dimensional flipping. It's been a lot of fun to build and I and continue to be mesmerized by
-				the depth of organic motion emerging from such simple math.
+				The effect was mesmerizing, and I began adding modes and features to explore the depth of patterns
+        and effects emerging from the simple concept.
 			</p>
 		</div>
 	</div>
@@ -72,17 +59,82 @@ title: "project: tiles"
 		<div class="largetext">
 			<h3>&nbsp;</h3>
 			<p>
-				The <b>spin</b> mode was created to answer the question "what would it look like if each tile was spinning
-				faster than the one before it?" Turned out it was pretty cool. All the different ratios produce
-				an ever-evolving flow where brief glimpses of structure form and dissipate amongst the chaos.
+				Even before I had the grid rendering on the screen, I wondered "What if each tile was just
+        spinning faster than the one before it, forever?" Turned out to be pretty cool, and thus the
+        <b>spin</b> mode was born. The many different ratios produce an evolving flow with patterns
+        forming and disintegrating amongst the chaos.
 			</p>
 			<p>
-				The animation is fully deterministic (no randomness) and can theoretically run forever without repeat.
+				Turning the <b>curve</b> parameter all the way down reduces the composition to straight
+        lines only, while retaining the organic flowing motion.
 			</p>
 			<p>
-				The first tile never moves at all. I later learned of Arthur Ganson's wonderful
-				<a href="https://www.arthurganson.com/concrete-1">Machine With Concrete</a>, which explores a similar concept.
+				The first tile does not move at all. I later learned that
+        <a href="https://www.arthurganson.com">Arthur Ganson</a>
+        had (among others) explored this concept beautifully with
+        <a href="https://www.arthurganson.com/concrete-1">Machine With Concrete</a>.
 			</p>
+		</div>
+	</div>
+</div>
+
+<div class="page-section">
+	<h2 class="underline">pattern</h2>
+	<div class="section-body">
+		<div class="largetext">
+			<h3>&nbsp;</h3>
+      <p>
+        In <b>pattern</b> mode, the grid transitions between a set of defined patterns. A pattern is
+        a function that assigns one of four directions to each tile in the grid. Most of them are
+        quite simple algebraic expressions (they can be viewed
+        <a href="https://github.com/jamesrowen/tiles/blob/master/patterns.js">here</a>).
+        It's a fun logic puzzle trying to convert a pattern in your head or on the
+        table into function. Testing random formulas and tweaks just to see what happens is also fun.
+      </p>
+      <p>
+        Transitions consist of rotating the tiles that need to be changed from one pattern to the next.
+        Transition functions tell each tile when during the transition to start rotating, creating
+        different wipe effects. Multiple transitions can be in effect simultaneously.
+			</p>
+			<p>
+				The tiles rotate clockwise by default. This creates a rolling effect that makes it easy to follow
+        the transition. When the <b>short</b> button is enabled, tiles that would rotate 270° will instead
+        rotate 90° the other direction. This creates more of an organic morphing effect.
+			</p>
+			<p>
+				As of December 2020 there are 19 patterns (chosen in a randomized sequence) and 8 transitions.
+        Countless more possibilities exist, adding pre-calculated "bitmaps" and ultimately "videos"
+        would be a logical next step.
+			</p>
+		</div>
+	</div>
+</div>
+
+<div class="page-section">
+	<h2 class="underline">orbit</h2>
+	<div class="section-body">
+		<div class="largetext">
+			<h3>&nbsp;</h3>
+			<p>
+				<b>Orbit</b> mode was discovered entirely by accident, due to a bug in the tile rotation code.
+        When first entering this mode, it displays what I saw when it first happened.
+        Expecting to see the familiar grid, I was instead greeted by a curled worm-like shape, ominously
+        unfolding as various "planets" zoomed by on wild orbits. Completely bewildered, I burst into
+        laughter.
+			</p>
+			<p>
+        As the worm flattens out, the grid does make a brief appearance before flying off
+        into orbit again, providing a clue as to what is going on. In many drawing contexts, in order
+        to rotate an object, you move the "camera" to the center of the object, rotate the camera,
+        draw the object, and then return the camera to its starting position before drawing the next object.
+        I had forgotten that last step, which resulted in the camera movements compounding on each other.
+			</p>
+      <p>
+        The bug was fixed, but the mode was kept. I added some tools to manipulate and see into
+        it, and discovered more interesting phenomena (some are featured in the mode's presets).
+        It felt like looking at little creatures under a microscope and trying to understand them.
+
+      </p>
 		</div>
 	</div>
 </div>
@@ -92,11 +144,13 @@ title: "project: tiles"
 	<div class="section-body">
 		<h3>&nbsp;</h3>
 		<img src="img/tiles/spin-bold-waves.png">
-		<img src="img/tiles/mountains.png">
+    <img src="img/tiles/diamond-fuzzy-large.png">
+		<img src="img/tiles/the-eye.png">
 		<img src="img/tiles/alignment.png">
 		<img src="img/tiles/holy-mitosis.png">
-		<img src="img/tiles/the-eye.png">
-		<img src="img/tiles/shell-light.png">
 		<img src="img/tiles/triforce-explode.png">
+    <img src="img/tiles/rivers-light.png">
+    <img src="img/tiles/mountains.png">
+    <img src="img/tiles/shell-light.png">
 	</div>
 </div>
