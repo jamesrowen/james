@@ -21,8 +21,8 @@
 /* full size */
 @media (min-width: 70em) {
 	#content { margin-right: 12.5em; }
-	.page-section { padding: 2.7em 0; }
-	.section-body { padding-left: 2.7em; }
+	.page-section { padding: 2.4em 0; }
+	.section-body { padding-left: 2.4em; }
 
 	#settings {
 		right: -155px;
@@ -44,6 +44,6 @@
 		transform: rotate(-90deg);
 		-ms-transform:rotate(-90deg);
 		-webkit-transform:rotate(-90deg);
-		left: -53px;
+		left: -54px;
 	}
 }

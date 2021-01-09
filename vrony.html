@@ -11,13 +11,16 @@ title: "project: vrony"
 			<h3>&nbsp;</h3>
 			<div>
 				<p>
-					Vrony is a program written in <a href="https://processing.org">Processing</a> for exploring animated
-					Voronoi diagrams. It contains a control panel with a number of sliders and buttons for modifying the animation.
+					Vrony is a program written in <a href="https://processing.org">Processing</a> for exploring
+          animated Voronoi diagrams. It contains a control panel with a number of sliders and buttons
+          for modifying the animation.
 				</p>
 				<p>
-					One interesting feature is the sequencer, inspired by the music-making software <a href="https://www.ableton.com/en/live/">Ableton Live</a>.
-					This allows the user to "automate" the parameters of the animation over time, to create complex long-running animations.
-					The sequencer is designed such that it could be used with any Processing program, and it may be developed into a standalone library.
+					One interesting feature is the sequencer, inspired by the music-making software
+          <a href="https://www.ableton.com/en/live/">Ableton Live</a>.
+					This allows the user to "automate" the parameters of the animation over time, to create complex
+          long-running animations. The sequencer is designed such that it could be used with any
+          Processing program, and it may be developed into a standalone library.
 				</p>
 			</div>
 		</div>
@@ -30,25 +33,29 @@ title: "project: vrony"
 		<div class="largetext">
 			<h3>&nbsp;</h3>
 			<p>
-				A Voronoi diagram is created by taking a set of points and calculating the region of space closest to each point,
-				resulting in a tesselation of polygons. I figured this would be a good candidate for creating interesting
-				animations due to its simplicity and ease of manipulation.
+				A Voronoi diagram is created by taking a set of points and calculating the region of space
+        closest to each point, creating a tesselation of polygons. I figured this would be a good
+        candidate for creating interesting animations due to its simplicity and ease of manipulation.
 			</p>
 			<p>
-				I would normally use the JavaScript port of Processing (<a href="https://p5js.org">p5.js</a>) for a browser-based
-				experience, but for best performance I decided to go with the (Java-based) original. This unfortunately makes it more
-				difficult for people to try out.
+				I would normally use the JavaScript port of Processing (<a href="https://p5js.org">p5.js</a>)
+        for a browser-based experience, but for best performance I decided to go with the (Java-based)
+        original. This unfortunately makes it more difficult for people to try out.
 			</p>
 			<p>
-				I briefly researched the the various algorithms for generating the diagrams (<a href="https://en.wikipedia.org/wiki/Fortune%27s_algorithm">Fortune's algorithm</a>
+				I briefly researched the the various algorithms for generating the diagrams
+        (<a href="https://en.wikipedia.org/wiki/Fortune%27s_algorithm">Fortune's algorithm</a>
 				is an interesting one), but luckily I was able to find the
-				<a href="https://leebyron.com/mesh/">Mesh</a> Processing library by <a href="https://leebyron.com/">Lee Byron</a>,
-				which is based on the O(n log(n)) <a href="https://www.cs.ubc.ca/~lloyd/java/quickhull3d.html">QuickHull3D</a> algorithm.
+				<a href="https://leebyron.com/mesh/">Mesh</a> Processing library by
+        <a href="https://leebyron.com/">Lee Byron</a>,
+				which is based on the O(n log(n))
+        <a href="https://www.cs.ubc.ca/~lloyd/java/quickhull3d.html">QuickHull3D</a> algorithm.
 			</p>
 			<p>
-				I also found a <a href="https://cs.uwaterloo.ca/~csk/publications/Papers/kaplan_1999.pdf">paper</a> from
-				<a href="https://cs.uwaterloo.ca/~csk/">Craig S. Kaplan</a> at the University of Waterloo, exploring this topic
-				as early as 1999. One of the modes in vrony was inspired by a description in this paper.
+				I also found a <a href="https://cs.uwaterloo.ca/~csk/publications/Papers/kaplan_1999.pdf">paper</a>
+        from <a href="https://cs.uwaterloo.ca/~csk/">Craig S. Kaplan</a> at the University of Waterloo,
+        exploring this concept as early as 1999. One of the modes in vrony was inspired by a description
+        in this paper.
 			</p>
 		</div>
 	</div>
@@ -60,33 +67,39 @@ title: "project: vrony"
 		<div class="largetext">
 			<h3>&nbsp;</h3>
 			<p>
-				The <b>mode</b> determines how the control points are arranged, how they move during the course of the animation,
-				and which parameters affect their movement. Currently there are two modes, each with enough depth to create a wide
-				range of effects, but there are many still to be explored.
+				The <b>mode</b> determines how the control points are arranged, how they move during the
+        course of the animation, and which parameters affect their movement. Currently there are two
+        modes, each with enough depth to create a wide range of effects, but there are many still to
+        be explored.
 			</p>
 			<ul>
 				<li>
-					In <b>mode 0</b>, the points are arranged in concentric circles, which can rotate in sync or in alternating directions.
-					The circles can be "perturbed" or moved off-center, creating an off-kilter effect.
+					In <b>mode 0</b>, the points are arranged in concentric circles, which can rotate in sync
+          or in alternating directions. The circles can be "perturbed" or moved off-center, creating an
+          off-kilter effect.
 				</li>
 				<li>
-					In <b>mode 1</b>, the points are arranged in a circle of rings, with an additional "wheel" passing through the center of
-					the rings. As the size of the rings grows, they overlap and form complex interlocking shapes.
+					In <b>mode 1</b>, the points are arranged in a circle of rings, with an additional "wheel"
+          passing through the center of the rings. As the size of the rings grows, they overlap and
+          form complex interlocking shapes.
 				</li>
 			</ul>
 			<p>
-				The <b>color mode</b>, along with <b>num colors</b>, determines the pattern for coloring the polygons. Simply changing
-				these settings can have striking effects, highlighting different substructures within the overall shape.
+				The <b>color mode</b>, along with <b>num colors</b>, determines the pattern for coloring the
+        polygons. Simply changing these settings can have striking effects, highlighting different
+        substructures within the overall shape.
 			</p>
 			<ul>
 				<li>
 					In <b>color mode 0</b>, all polygons are colored, rotating through a palette of colors.
 				</li>
 				<li>
-					In <b>color mode 1</b>, each ring has one color, alternating between the palette colors and black.
+					In <b>color mode 1</b>, each ring has one color, alternating between the palette colors
+          and black.
 				</li>
 				<li>
-					In <b>color mode 2</b>, each ring has one color, but each polygon in the ring alternates between that color and black.
+					In <b>color mode 2</b>, each ring has one color, but each polygon in the ring alternates
+          between that color and black.
 				</li>
 			</ul>
 			<img src="img/vrony2.png">
@@ -94,7 +107,8 @@ title: "project: vrony"
 				The same scene drawn in three different color modes.
 			</p>
 			<p>
-				The sequencer is a proof-of-concept that needs some more work to be truly functional. Planned enhancements include:
+				The sequencer is a proof-of-concept that needs some more work to be truly functional. Planned
+        enhancements include:
 			</p>
 			<ul>
 				<li>Saving and loading of sequence files.</li>
@@ -112,10 +126,22 @@ title: "project: vrony"
 	<div class="section-body">
 		<div class="largetext">
 			<ul>
-				<li><a href="https://en.wikipedia.org/wiki/Voronoi_diagram">Voronoi diagrams on Wikipedia</a></li>
-				<li><a href="https://cs.uwaterloo.ca/~csk/publications/Papers/kaplan_1999.pdf">Voronoi Diagrams and Ornamental Design - Craig S. Kaplan</a></li>
-				<li><a href="https://leebyron.com/mesh/">Mesh Processing Library - Lee Byron</a></li>
-				<li><a href="http://www.raymondhill.net/voronoi/rhill-voronoi.html">Implementation of Fortune's Algorithm - Raymond Hill</a></li>
+				<li>
+          <a href="https://en.wikipedia.org/wiki/Voronoi_diagram">Voronoi diagrams on Wikipedia</a>
+        </li>
+				<li>
+          <a href="https://cs.uwaterloo.ca/~csk/publications/Papers/kaplan_1999.pdf">
+            Voronoi Diagrams and Ornamental Design - Craig S. Kaplan
+          </a>
+        </li>
+				<li>
+          <a href="https://leebyron.com/mesh/">Mesh Processing Library - Lee Byron</a>
+        </li>
+				<li>
+          <a href="http://www.raymondhill.net/voronoi/rhill-voronoi.html">
+            Implementation of Fortune's Algorithm - Raymond Hill
+          </a>
+        </li>
 			</ul>
 		</div>
 	</div>

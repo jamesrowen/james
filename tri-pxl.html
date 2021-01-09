@@ -1,0 +1,87 @@
+---
+layout: default
+title: "project: tri pxl"
+---
+<div class="page-section">
+	<h2 class="underline">tri pxl</h2>
+	<div class="section-body">
+		<div class="largetext">
+			<h3>&nbsp;</h3>
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube-nocookie.com/embed/2fIxcV2YHys"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      >
+      </iframe>
+			<h3>&nbsp;</h3>
+			<div>
+				<p>
+					Two triangular LED modules with pattern sequencing system. Made with Arduino, WS2812 LEDs,
+          plywood.
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="page-section">
+	<h2 class="underline">background</h2>
+	<div class="section-body">
+		<div class="largetext">
+			<h3>&nbsp;</h3>
+			<div>
+				<p>
+					This was my first project with individually addressable LEDs, also known as pixels or
+          NeoPixels. A friend had sent me
+          <a href="https://www.youtube.com/watch?v=90oZ52M4IC0">this video</a>
+          of the "Johnson Family Dubstep Christmas Light Show,"
+          and I was pretty impressed. Matt Johnson is a talented professional and has
+          <a href="https://www.youtube.com/playlist?list=PLOp9Tx63j4ojLndg_GsMVdVZSh_ALLiDf">
+            some excellent videos
+          </a>
+          detailing how his installations are made. Feeling inspired, I bought an Arduino Uno,
+          a soldering iron, and some LEDs.
+				</p>
+        <p>
+          I liked how the pixels could be used to form any shape, and I immediately wanted
+          to make a triangle. It's a highly versatile shape, and I thought it would be fun to program
+          different patterns for it, so I put together a prototype.
+        </p>
+        <p>
+          Liking how it turned out, I set out to build two larger modules out of plywood. I measured,
+          marked out, and drilled 252 holes for each. Later versions would be cut from steel on a
+          waterjet and powder-coated.
+        </p>
+        <p>
+          I used the "bullet" type LEDs – their individual cases and flexible connections make them
+          well-suited to fit snugly in the holes (though without glue they can be pushed out under rough
+          or dusty conditions). I then glued on side walls and attached a back cover with hinges,
+          resulting in two nicely contained modules.
+        </p>
+        <p>
+          With the build complete, I was ready to move on to the software. This is the most exciting part,
+          where you really get to see what kind of ideas you can come up with and express
+          mathematically. My system works on the concept of <b>patterns</b>,
+          where each pattern is a function that takes in a "progress" amount (from 0-100%) and sets the
+          color of each pixel. Each pattern defines how to make use of <b>parameters</b> that can alter it,
+          for example the color or number of colors. Four patterns are shown in the video above, but
+          there are countless more possibilities.
+        </p>
+        <p>
+          Once you start adding in knobs and buttons, it gets really fun. If, for example, you're wondering
+          how many segments to use in a pattern, or how big the segments should be, or how many
+          colors they should use – you can easily hook those parameters up to knobs and simply try them
+          out in different combinations.
+        </p>
+        <p>
+          It feels like creating an instrument and learning how to play it
+          at the same time. And when you find some good combinations, you create a sequencing system
+          so it can gradually morph between them, playing back your written compositions.
+        </p>
+			</div>
+		</div>
+	</div>
+</div>

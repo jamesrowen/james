@@ -2,7 +2,9 @@
 html, body { height: 100% }
 p { margin-bottom: 1.2em; }
 p.caption { text-align: center; font-size: .9em; }
-.underline { border-bottom: 1px solid #888; }
+iframe { display: block; margin: 0 auto; }
+.underline { border-bottom: 1px solid #999; }
+.dark .underline { border-bottom: 1px solid #777; }
 .lowercase { text-transform: lowercase; }
 .uppercase { text-transform: uppercase; }
 .weight-normal { font-weight: normal; }
@@ -55,7 +57,9 @@ a {
 }
 .dark a { color: #b6b6b6; }
 a.project-link {
-	font-size: .6em;
+  display: inline-block;
+	font-size: .55em;
+  margin-left: 12px;
 }
 
 .red a.active {
@@ -101,7 +105,7 @@ a.project-link {
 }
 
 #content a:hover {
-	color: #c17802;
+	color: #c15202;
 }
 
 .btn {
@@ -169,6 +173,7 @@ ul.spaced li { margin-bottom: .6em; }
 		color .15s linear;
 }
 #nav a:hover { margin-left: 5px; }
+#nav a#homelink:hover { margin-left: 0; }
 #email:hover { color: #b33211; }
 #github:hover { color: #05a881; }
 #linkedin:hover { color: #1f8fa2; }
@@ -207,7 +212,7 @@ ul.spaced li { margin-bottom: .6em; }
 
 .page-section h4 {
 	font-size: 1.5em;
-	margin: .2em 0 .1em;
+	margin: .1em 0 .2em;
 	font-weight: bold;
 	-webkit-transition: color .2s ease-out;
 	transition: color .2s ease-out;
@@ -233,9 +238,8 @@ ul.spaced li { margin-bottom: .6em; }
 
 /* homepage and resume */
 .project-blurb {
-	border-bottom: 1px solid #888;
 	padding: .3em 0;
-	margin-bottom: 2.5em;
+	margin-bottom: 2.3em;
 }
 .resume-section {
 	margin: 1.5em 0;
@@ -274,7 +278,7 @@ ul.spaced li { margin-bottom: .6em; }
 #settings.active { right: 0; }
 
 #settings-pane div {
-	margin-top:10px;
+	margin-top: 10px;
 	border-color: inherit;
 }
 
@@ -332,7 +336,7 @@ code {
 	width: 13px;
 	height: 13px;
 	border: 2px solid;
-	border-radius: 7px;
+	border-radius: 8px;
 	z-index: 1337;
 	-webkit-transition:
 		border-color .5s linear,

@@ -1,0 +1,74 @@
+---
+layout: default
+title: "project: zigzag"
+---
+<div class="page-section">
+	<h2 class="underline">zigzag</h2>
+	<div class="section-body">
+		<div class="largetext">
+			<h3>&nbsp;</h3>
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube-nocookie.com/embed/_6Cyqyoxiyo"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      >
+      </iframe>
+			<h3>&nbsp;</h3>
+			<div>
+				<p>
+					An LED installation with a custom-made controller. Knobs and buttons allow the user to
+          choose and modulate different patterns.
+				</p>
+				<p>
+          In this video I attempt to demonstrate the controller, and largely fail. Sadly, the project
+          has since been lost, so it's the best we've got.
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="page-section">
+	<h2 class="underline">background</h2>
+	<div class="section-body">
+		<div class="largetext">
+			<h3>&nbsp;</h3>
+			<div>
+				<p>
+					I hastily scrapped this together with materials I had on-hand shortly before an event.
+          I had originally started work on the controller for the <a href="/tri-pxl">tri pxl</a> project,
+          but I didn't have any modules in working condition.
+				</p>
+				<p>
+					The tri pxl code was designed around the concept of <b>Rows</b>. Each concentric triangle
+          is modeled as a Row. The number of Rows and their lengths are configurable, and the patterns
+          use an API to operate on the rows, making the system adaptable to displays of any shape that
+          could be interpreted as a series of rows (in theory).
+				</p>
+        <p>
+          With zigzag I wanted to test that hypothesis, so I created a shape with rows that are linear
+          rather than circular. I also moved from the Arduino to the Teensy, for more pins and
+          memory in a small footprint.
+        </p>
+        <p>
+          Overall it worked pretty well; the code and controller worked without much fuss. The nature
+          of the zigzag is that each row alternates direction, which looks good with some patterns but
+          not others, so I added an option to flip every other row.
+        </p>
+        <p>
+          For some reason I decided to use two Teensys – one to handle the knobs and buttons,
+          and one to run the LEDs. To send the input state from one to the other, I ended up connecting
+          them by their Serial ports, which meant writing a (very rudimentary) byte-level protocol.
+        </p>
+        <p>
+          That was kind of exciting because I've rarely worked at that level, but it ended up being
+          flaky and would frequently become disconnected or garbled. In the future I would
+          try to fit everything on a single board.
+        </p>
+			</div>
+		</div>
+	</div>
+</div>
