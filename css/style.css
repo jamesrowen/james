@@ -338,6 +338,7 @@ code {
 	border: 2px solid;
 	border-radius: 8px;
 	z-index: 1337;
+  cursor: pointer;
 	-webkit-transition:
 		border-color .5s linear,
 		background-color .5s linear;

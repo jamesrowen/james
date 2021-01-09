@@ -13,7 +13,7 @@ scope.navDivs = scope.navMenuItems.map(function(){
 
 // scrollbar stuff
 var minScrollPos = 65;
-var maxScrollPos = $(window).height() - 40 - 25;
+var maxScrollPos = $(window).height() - 65;
 
 (function(window) {
 
@@ -102,7 +102,7 @@ function onResize(e)
 
 		// update scrollbar position
 		$(document).trigger('scroll');
-		maxScrollPos = $(window).height() - 40 - 25;
+		maxScrollPos = $(window).height() - 65;
 
 		mediaQueries();
 }
@@ -137,7 +137,7 @@ function onScroll(e)
 {
 	// set my scrollbar to the correct position
 	var scrollPct = $(document).scrollTop() / ($('#content').height() - $(window).height());
-	var trackHeight = $(window).height() - minScrollPos - 50;
+	var trackHeight = $(window).height() - minScrollPos - 48;
 	$('#scrollbar').css('top', (minScrollPos + trackHeight * scrollPct) + 'px');
 
 	// update scrollspy on nav menu
