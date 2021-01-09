@@ -69,6 +69,7 @@ a.project-link {
 .red #content a,
 .red a:hover,
 #red:hover,
+.red #content a.project-title:hover,
 .red .page-section a:hover + h4 {
 	color: #b33211;
 }
@@ -83,6 +84,7 @@ a.project-link {
 .blue #content a,
 .blue a:hover,
 #blue:hover,
+.blue #content a.project-title:hover,
 .blue .page-section a:hover + h4 {
 	color: #1f8fa2;
 }
@@ -97,6 +99,7 @@ a.project-link {
 .green #content a,
 .green a:hover,
 #green:hover,
+.green #content a.project-title:hover,
 .green .page-section a:hover + h4 {
 	color: #05a881;
 }
@@ -107,6 +110,7 @@ a.project-link {
 #content a:hover {
 	color: #c15202;
 }
+#content a.project-title { color: inherit; }
 
 .btn {
 	display: block;
@@ -211,7 +215,7 @@ ul.spaced li { margin-bottom: .6em; }
 }
 
 .page-section h4 {
-	font-size: 1.5em;
+	font-size: 1.6em;
 	margin: .1em 0 .2em;
 	font-weight: bold;
 	-webkit-transition: color .2s ease-out;
