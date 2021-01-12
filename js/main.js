@@ -116,7 +116,8 @@ function mediaQueries()
 	$("#nav").unbind("click").click(function() { $(this).toggleClass('active'); });
 
 	// show cog icon for settings menu button
-	$('#settings-link').html('&gt;');
+  $('#settings-link-icon').css('display', 'initial');
+  $('#settings-link-text').css('display', 'none');
 
 	// middle size
 	if (matchMedia("(min-width: 40.5em)").matches)
@@ -128,8 +129,9 @@ function mediaQueries()
 	// full size
 	if (matchMedia("(min-width: 70em)").matches)
 	{
-		// show "settings" text for settings menu button
-		$('#settings-link').html('settings');
+		// show text in settings menu link
+    $('#settings-link-icon').css('display', 'none');
+    $('#settings-link-text').css('display', 'initial');
 	}
 };
 

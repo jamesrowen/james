@@ -39,6 +39,7 @@
 		border-left: none;
 		border-top: none;
 		box-shadow: none;
+    border-radius: 0;
 	}
 	#settings-btn.active {
 		transform: rotate(-90deg);
