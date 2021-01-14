@@ -244,6 +244,11 @@ ul.spaced li { margin-bottom: .6em; }
 	-webkit-transition: border-color .2s ease-out;
 	transition: border-color .2s ease-out;
 }
+.page-section img.smaller {
+	display: block;
+	width: 75%;
+	margin: 1.5em auto;
+}
 
 .section-body { padding-left: .625em; }
 
