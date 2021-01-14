@@ -30,7 +30,7 @@ navlinks:
           the animation in exciting ways.
 				</p>
 				<p>
-					Each mode contains a number of <b>presets</b> that demonstrate some of the possibilities.
+					Each mode contains a few <b>presets</b> that demonstrate some of the possibilities.
           I recommend clicking through them!
 				</p>
 			</div>
@@ -44,29 +44,29 @@ navlinks:
 		<div class="largetext">
 			<h3>&nbsp;</h3>
 			<p>
-				While browsing the clearance section at Ikea, I came across a rack of ceramic tiles
-        of various designs. One design in particular caught my eye, a simple symmetrical shape
-        reminiscent of a sine wave. It looked like it had versatility, so I bought
-        a few boxes.
+				While browsing the clearance section at Ikea, I came across a rack of ceramic tiles painted with
+        various shapes. One design in particular caught my eye – a symmetrical shape that resembled
+        a sine wave. It looked like it could make some fun patterns, so I bought a few boxes.
 			</p>
       <img class="smaller" src="img/tiles/tillfalle-tiles.jpg" />
 			<p>
-				Laying the tiles out on a table, I quickly discovered there were
-        indeed many exciting possibilities. But how then could I choose just one to fix them in?
+				I laid the tiles out and started rearranging them, and soon discovered that there were
+        indeed many exciting configurations. But then the question became "How do I choose just one to
+        permanently affix them in?"
       </p>
       <img class="smaller" src="img/tiles/tile-patterns.jpg" />
       <p>
-        I envisioned a large wall of tiles, with each tile connected to a separate motor,
-        continuously rearranging itself into different patterns.
+        To avoid this problem, I envisioned a large wall of tiles with each tile able to rotate
+        independently on a separate motor, allowing the wall to continuously rearrange itself into
+        different patterns.
       </p>
       <p>
-        I would still like to build this project, but in the
-        interim I settled for the next best thing - simulating it in software. This is the
-        <b>pattern</b> mode in tiles, described below.
+        I would still like to build this project, but in the interim I settled for the next best thing:
+        simulating it in software. This is the <b>pattern</b> mode in tiles, described below.
       </p>
 			<p>
-				The effect was mesmerizing, and I began adding modes and features to explore the depth of patterns
-        and effects emerging from the simple concept.
+				Once I got it working, I was mesmerized by the effect, so I began adding modes and features to
+        explore the concept further.
 			</p>
 		</div>
 	</div>
@@ -78,14 +78,15 @@ navlinks:
 		<div class="largetext">
 			<h3>&nbsp;</h3>
 			<p>
-				Even before I had the grid rendering on the screen, I wondered "What if each tile was just
-        spinning faster than the one before it, forever?" Turned out to be pretty cool, and thus the
-        <b>spin</b> mode was born. The many different ratios produce an evolving flow with patterns
-        forming and disintegrating amongst the chaos.
+				While setting up the simulation, I wondered "What would it look like if each tile was
+        spinning faster than the one before it?" Turned out to be pretty cool, and thus the
+        <b>spin</b> mode was born. The many different ratios produce an evolving flow with glimpses
+        of structure forming and dissipating amid the chaos.
 			</p>
 			<p>
-				Turning the <b>curve</b> parameter all the way down reduces the composition to straight
-        lines only, while retaining the organic flowing motion.
+				I was intrigued by the complexity of motion emerging from a simple deterministic
+        rule. To simplify even further, the <b>curve</b> parameter can be turned all the way down, reducing
+        the composition to only straight lines while retaining the fluidity.
 			</p>
 			<p>
 				The first tile does not move at all. I later learned that
@@ -105,13 +106,16 @@ navlinks:
       <p>
         In <b>pattern</b> mode, the grid transitions between a set of defined patterns. A pattern is
         a function that assigns one of four directions to each tile in the grid. Most of them are
-        quite simple algebraic expressions (they can be viewed
+        relatively simple algebraic expressions (they can be viewed
         <a href="https://github.com/jamesrowen/tiles/blob/master/patterns.js">here</a>).
         It's a fun logic puzzle trying to convert a pattern in your head or on the
-        table into function. Testing random formulas and tweaks just to see what happens is also fun.
+        table into function. It's also fun to just test out different formulas and tweaks and see what
+        happens.
       </p>
       <p>
-        Transitions consist of rotating the tiles that need to be changed from one pattern to the next.
+        Transitions consist of simply rotating the tiles from one state to the next.
+        Every pair of patterns has a unique transition between them - sometimes many tiles need to
+        be rotated significantly and sometimes very little change is needed.
         Transition functions tell each tile when during the transition to start rotating, creating
         different wipe effects. Multiple transitions can be in effect simultaneously.
 			</p>
@@ -137,21 +141,22 @@ navlinks:
 			<p>
 				<b>Orbit</b> mode was discovered entirely by accident, due to a bug in the tile rotation code.
         When first entering this mode, it displays what I saw when it first happened.
-        Expecting to see the familiar grid, I was instead greeted by a curled worm-like shape, unfolding
-        ominously as various celestial objects zoomed by on wild orbits. Completely bewildered, I burst into
+        Expecting to see the familiar grid, I was instead greeted by a curled worm-like shape unfolding
+        ominously as celestial objects zoomed by on wild orbits. Completely bewildered, I burst into
         laughter.
 			</p>
 			<p>
-        As the worm flattens out, the grid does make a brief appearance before flying off
+        As the worm flattens out, the grid does materialize briefly before spinning off
         into orbit again, providing a clue as to what is going on. In many drawing contexts, in order
         to rotate an object, you move the "camera" to the center of the object, rotate the camera,
         draw the object, and then return the camera to its starting position before drawing the next object.
         I had forgotten that last step, which resulted in the camera movements compounding on each other.
 			</p>
       <p>
-        The bug was fixed, but the mode was kept. As I dug deeper I learned how to navigate it,
-        developed tools to manipulate it, and discovered more interesting phenomena (some can be seen
-        in the mode's presets). It felt like exploring a microcosm of creatures under a microscope.
+        The bug was fixed, but the mode was kept. Digging deeper, I learned how to navigate it,
+        developed tools to manipulate it, and discovered more interesting phenomena (some are preserved
+        in the mode's presets). It felt like observing little creatures under a microscope;
+        trying to learn about their world.
       </p>
 		</div>
 	</div>
