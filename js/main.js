@@ -20,6 +20,7 @@ var maxScrollPos = $(window).height() - 65;
 	// resize and scroll events
 	onResize();
 	$(window).resize(onResize);
+	onScroll();
 	$(document).scroll(onScroll);
 
 	// click events
@@ -142,15 +143,21 @@ function onScroll(e)
 	var trackHeight = $(window).height() - minScrollPos - 48;
 	$('#scrollbar').css('top', (minScrollPos + trackHeight * scrollPct) + 'px');
 
-	// update scrollspy on nav menu
-	// get all nav divs above the current position
-  var cur = scope.navDivs.map(function() {
-    if ($(this).offset().top <= Math.max($(document).scrollTop(), 0))
+	// update highlighted link in nav menu
+	// get all sections above the current position
+  // (with offset to include a section before it reaches the very top of page)
+  var scrolledSections = scope.navDivs.map(function() {
+    if ($(this).offset().top - 150 <= Math.max($(document).scrollTop(), 0))
       return this;
   });
   // get the last div above the current position
-  cur = cur[cur.length-1];
-  var id = cur && cur.length ? cur[0].id : "";
+  var curSection = scrolledSections[scrolledSections.length - 1];
+  // if at the bottom of the page, use the last nav div, as it may be too short
+  // to ever reach the top of the screen
+  if (scrollPct > .98) {
+    curSection = scope.navDivs[scope.navDivs.length - 1];
+  };
+  var id = curSection && curSection.length ? curSection[0].id : "";
   // if we changed divs, set/unset the "active" class
   if (scope.lastScrollDiv !== id) {
     scope.lastScrollDiv = id;

@@ -3,7 +3,7 @@ html, body { height: 100% }
 p { margin-bottom: 1.2em; }
 p.caption { text-align: center; font-size: .9em; }
 iframe { display: block; margin: 0 auto; }
-.underline { border-bottom: 1px solid #999; }
+.underline { border-bottom: 1px solid #aaa; }
 .dark .underline { border-bottom: 1px solid #777; }
 .lowercase { text-transform: lowercase; }
 .uppercase { text-transform: uppercase; }
@@ -39,7 +39,7 @@ iframe { display: block; margin: 0 auto; }
 
 #content {
 	max-width: 50em;
-	margin: 0 1em 0 204px;
+	margin: 0 1em 0 210px;
 	min-height: 100%;
 	box-shadow: none;
 	z-index: 999;
@@ -78,7 +78,7 @@ a.project-link {
 }
 
 .blue a.active {
-	color: #1f8fa2 !important;
+	color: #1e98ad !important;
 	font-weight: bold;
 }
 .blue #content a,
@@ -86,10 +86,10 @@ a.project-link {
 #blue:hover,
 .blue #content a.project-title:hover,
 .blue .page-section a:hover + h4 {
-	color: #1f8fa2;
+	color: #1e98ad;
 }
 .blue .page-section a:hover img {
-	border-color: #1f8fa2;
+	border-color: #1e98ad;
 }
 
 .green a.active {
@@ -116,9 +116,10 @@ a.project-link {
 	display: block;
 	text-align: center;
 	font-weight: bold;
+	font-size: .9em;
 	width: 60px;
 	background-color: #ddd;
-	padding: 10px 20px;
+	padding: 6px 12px;
 	border-radius: 3px;
 	-webkit-transition:
 		color .2s ease-out,
@@ -137,7 +138,7 @@ a.project-link {
 svg.icon { width: 14px; height: 14px; fill: #6a6a6a; }
 .dark svg.icon { fill: #b6b6b6; }
 .red a:hover svg.icon { fill: #b33211; }
-.blue a:hover svg.icon { fill: #1f8fa2; }
+.blue a:hover svg.icon { fill: #1e98ad; }
 .green a:hover svg.icon { fill: #05a881; }
 
 
@@ -188,7 +189,7 @@ ul.spaced li { margin-bottom: .6em; }
 #nav a#homelink:hover { margin-left: 0; }
 #email:hover { color: #b33211; }
 #github:hover { color: #05a881; }
-#linkedin:hover { color: #1f8fa2; }
+#linkedin:hover { color: #1e98ad; }
 
 #nav h1 { font-size:1.1em; font-weight:normal; }
 
