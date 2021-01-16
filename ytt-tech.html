@@ -4,39 +4,93 @@ title: "Project: YTT Tech"
 navlinks:
   - name: YTT Tech
     id: ytt-tech
+  - name: background
+    id: background
+  - name: features
+    id: features
+  - name: notes
+    id: notes
 ---
 <div class="page-section" id="ytt-tech">
 	<h2 class="underline">YTT Tech</h2>
 	<div class="section-body">
 		<div class="largetext">
 			<h3>&nbsp;</h3>
-			<img src="img/ytt-tech1.png" />
+			<a href="https://ytt-tech.com"><img src="img/ytt-tech1.png" /></a>
 			<h3>&nbsp;</h3>
-			<div>
-				<p>
-					<a href="https://ytt-tech.com">YTT Tech</a> is a collection of instructional YouTube videos.
-					It invites the user to explore different subjects and dive into content. Some information about
-					the tools and materials used in the videos is also provided.
-				</p>
-				<p>
-					I love watching YouTube videos that teach you how to do something. Video is a great format
-					for delivering instruction on many skills and processes that would otherwise require an in-person
-					teacher. I had an idea to create a website dedicated to collecting and curating those videos.
-				</p>
-				<p>
-					So far the surface has only been scratched, and many gaps remain to be filled. Users can register and
-					submit videos to be added to the database. Additional authoring and management tools are available to
-					Editor and Adminitrative users.
-				</p>
-				<p>
-					One of the main challenges is determining the hierarchy of topics (currently organized into Departments
-					containing Sections). This will have to be adapted as the collection grows. More search and filtering
-					capabilities will become useful.
-				</p>
-				<p>
-					Made with React (Hooks), Styled Components, AWS Lambda/SAM, DynamoDB, S3, Cognito, Amplify, Route53.
-				</p>
-			</div>
+			<p>
+				<a href="https://ytt-tech.com">YTT Tech</a> is a curated database of
+        of instructional YouTube videos. It invites the user to explore a hierarchy of skills and
+        subjects, and dive into quality content. Supplemental information about the tools
+        and materials used is also provided.
+			</p>
+			<p>
+				It's made with React, Styled Components, AWS Lambda/SAM, and DynamoDB.
+			</p>
+		</div>
+	</div>
+</div>
+
+<div class="page-section" id="background">
+	<h2 class="underline">background</h2>
+	<div class="section-body">
+		<div class="largetext">
+			<h3>&nbsp;</h3>
+			<p>
+				It's amazing how much instructional content is available to us on YouTube. It's empowering,
+        really, that we can instantly look up how to do so many things. Video is a great format
+				for learning many skills and techniques that might otherwise require in-person
+				instruction. When I looked around for a site dedicated to organizing and curating
+        this content, I didn't find much, so I decided to make one.
+			</p>
+			<p>
+				After implementing the basic experience and authoring tools I spent weeks combing through
+        videos to get the collection started, and I've only scratched the surface. Many areas of interest
+        remain to be included, and to that end, users can submit videos to the database. If the
+        idea resonates it could grow into a useful resource.
+      </p>
+		</div>
+	</div>
+</div>
+
+<div class="page-section" id="features">
+	<h2 class="underline">features</h2>
+	<div class="section-body">
+		<div class="largetext">
+      <ul class="spaced">
+        <li>
+          The main interface, called the Explorer, was designed to encourage browsing and discovery.
+          Considerable screen space is given to the department and section lists that might otherwise
+          be implemented as dropdowns. This allows the user see the options and
+          quickly try them out.
+        </li>
+        <li>
+          The tools window appears when clicking on a tool or material, providing additional information
+          and resources.
+        </li>
+        <li>
+          Users can submit videos and suggest changes to other videos and tools/materials.
+        </li>
+        <li>
+          Submitted videos are reviewed by Editors before being activated. Editors can edit videos
+          and tools/materials, and add departments and sections.
+        </li>
+      </ul>
+		</div>
+	</div>
+</div>
+
+<div class="page-section" id="notes">
+	<h2 class="underline">notes</h2>
+	<div class="section-body">
+		<div class="largetext">
+			<h3>&nbsp;</h3>
+			<p>
+				One of the main challenges is in determining a sensible hierarchy of departments and
+        sections, and placing videos within them. Ultimately subjective judgment calls will have to
+        be made, and the list will adapt and respond to the growth of the database. More search and
+        filtering capabilities will become necessary, and potentially a third level of hierarchy.
+			</p>
 		</div>
 	</div>
 </div>
