@@ -26,12 +26,6 @@ iframe { display: block; margin: 0 auto; }
 	line-height: 1.4;
 	border-color: #ddd;
 	min-height: 100%;
-	-webkit-transition:
-		border-color .5s linear,
-		background-color .5s linear;
-	transition:
-		border-color .5s linear,
-		background-color .5s linear;
 }
 #page.dark {
 	background-color: #222;
@@ -57,8 +51,8 @@ a {
 	text-decoration: none;
 	color: #6a6a6a;
 	cursor: pointer;
-	-webkit-transition: color .2s ease-out;
-	transition: color .2s ease-out;
+	-webkit-transition: color .1s ease-out;
+	transition: color .1s ease-out;
 }
 .dark a { color: #b6b6b6; }
 a.project-link {
@@ -68,7 +62,7 @@ a.project-link {
 }
 
 .red a.active {
-	color: #b33211 !important;
+	color: #c53915 !important;
 	font-weight: bold;
 }
 .red #content a,
@@ -76,10 +70,10 @@ a.project-link {
 #red:hover,
 .red #content a.project-title:hover,
 .red .page-section a:hover + h4 {
-	color: #b33211;
+	color: #c53915;
 }
 .red .page-section a:hover img {
-	border-color: #b33211;
+	border-color: #c53915;
 }
 
 .blue a.active {
@@ -142,7 +136,7 @@ a.project-link {
 /* icon */
 svg.icon { width: 14px; height: 14px; fill: #6a6a6a; }
 .dark svg.icon { fill: #b6b6b6; }
-.red a:hover svg.icon { fill: #b33211; }
+.red a:hover svg.icon { fill: #c53915; }
 .blue a:hover svg.icon { fill: #1e98ad; }
 .green a:hover svg.icon { fill: #05a881; }
 
@@ -192,7 +186,7 @@ ul.spaced li { margin-bottom: .6em; }
 }
 #nav a:hover { margin-left: 5px; }
 #nav a#homelink:hover { margin-left: 0; }
-#email:hover { color: #b33211; }
+#email:hover { color: #c53915; }
 #github:hover { color: #05a881; }
 #linkedin:hover { color: #1e98ad; }
 
@@ -401,18 +395,12 @@ code {
 	border-radius: 8px;
 	z-index: 1337;
   cursor: pointer;
-	-webkit-transition:
-		border-color .5s linear,
-		background-color .5s linear;
-	transition:
-		border-color .5s linear,
-		background-color .5s linear;
 }
-#scrollbar.dark {
+.dark #scrollbar {
 	border-color: #222;
 	background-color: #ddd;
 }
-#scrollbar.light {
+.light #scrollbar {
 	border-color: #e4e4e2;
 	background-color: #272919;
 	right: -10px;
