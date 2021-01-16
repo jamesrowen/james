@@ -1,7 +1,12 @@
 /* global styles */
 html, body { height: 100% }
 p { margin-bottom: 1.2em; }
-p.caption { text-align: center; font-size: .9em; }
+p.caption {
+  text-align: center;
+  font-size: .9em;
+  color: #656461;
+}
+.dark p.caption { color: #c5c5c2; }
 iframe { display: block; margin: 0 auto; }
 .underline { border-bottom: 1px solid #aaa; }
 .dark .underline { border-bottom: 1px solid #777; }
@@ -237,21 +242,55 @@ ul.spaced li { margin-bottom: .6em; }
 }
 .page-section a.image { color: inherit; }
 
-.page-section img {
-	display: inline-block;
+.section-body {
+  margin-top: 1.7em;
+  padding-left: .625em;
+}
+
+
+/* images */
+img {
+	display: block;
+  box-sizing: border-box;
 	width: 100%;
-	margin: 2px 0;
 	border: 1px solid #888;
 	-webkit-transition: border-color .2s ease-out;
 	transition: border-color .2s ease-out;
 }
-.page-section img.smaller {
-	display: block;
+img.smaller {
 	width: 75%;
 	margin: 1.5em auto;
 }
+img.captioned {
+	margin-bottom: .3em;
+}
+img.section-header,
+img.gallery,
+iframe.section-header {
+  margin-bottom: 1.5em;
+}
 
-.section-body { padding-left: .625em; }
+.image-overlay {
+  position: relative;
+  display: inline-block;
+}
+.overlay {
+  background-color: #eaeae01a;
+  position: absolute;
+  top: 0;
+  right: -2px;
+  left: 0;
+  bottom: 0;
+  opacity: 0;
+  -webkit-transition: opacity .2s ease-out;
+  transition: opacity .2s ease-out;
+}
+.overlay.dark {
+  background-color: #aaaa9a1a;
+}
+.image-overlay:hover .overlay {
+  opacity: 1;
+}
 
 
 /* homepage and resume */
@@ -271,32 +310,6 @@ ul.spaced li { margin-bottom: .6em; }
 }
 .experience-heading > div:nth-child(2) {
 	text-align: right;
-}
-
-.image-overlay {
-  position: relative;
-  display: inline-block;
-	margin: 2px 0;
-}
-.image-overlay img {
-	margin: 0;
-}
-.overlay {
-  background-color: #eaeae016;
-  position: absolute;
-  top: 0;
-  right: -2px;
-  left: 0;
-  bottom: 5px;
-  opacity: 0;
-  -webkit-transition: opacity .2s ease-out;
-  transition: opacity .2s ease-out;
-}
-.overlay.dark {
-  background-color: #aaaa9a18;
-}
-.image-overlay:hover .overlay {
-  opacity: 1;
 }
 
 
