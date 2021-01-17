@@ -1,5 +1,6 @@
 // load and apply settings from localStorage
-const theme = window.localStorage.getItem('homepage-theme') || 'light';
+const osTheme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+const theme = window.localStorage.getItem('homepage-theme') || osTheme;
 $('#page').addClass(theme);
 const letterCase = window.localStorage.getItem('homepage-case') || 'lowercase';
 $('#nav,#settings,h2,h3').addClass(letterCase);
@@ -129,8 +130,14 @@ function onResize(e) {
 function mediaQueries() {
 	// mobile - default
 
-	// left menu - click on it to open/close
-	$('#nav').unbind('click').click(function() { $(this).toggleClass('active'); });
+	// click on nav menu to open, click anywhere to close
+	$(window).unbind('click').click(function(e) {
+    if (document.getElementById('nav').contains(e.target)) {
+      $('#nav').toggleClass('active');
+    } else {
+      $('#nav').removeClass('active');
+    }
+  });
 
 	// show cog icon for settings menu button
   $('#settings-link-icon').css('display', 'initial');
@@ -139,8 +146,8 @@ function mediaQueries() {
 	// middle size
 	if (matchMedia('(min-width: 40.5em)').matches)
 	{
-		// nav menu - no click event
-		$('#nav').unbind('click').removeClass('active');
+		// remove nav open/close event handler
+		$(window).unbind('click').removeClass('active');
 	}
 
 	// full size
@@ -155,7 +162,7 @@ function mediaQueries() {
 function onScroll(e) {
 	// set my scrollbar to the correct position
 	var scrollPct = $(document).scrollTop() / ($('#content').height() - $(window).height());
-	var trackHeight = $(window).height() - minScrollPos - 48;
+	var trackHeight = $(window).height() - minScrollPos - 41;
 	$('#scrollbar').css('top', (minScrollPos + trackHeight * scrollPct) + 'px');
 
 	// update highlighted link in nav menu

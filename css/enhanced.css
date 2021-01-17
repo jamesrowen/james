@@ -1,6 +1,6 @@
 /* 640-768px ~ mobile landscape / tablet portrait */
 @media (min-width: 40.5em) {
-	#page {	margin-left: 0; }
+	#content { margin-left: 11.7em; }
 
 	#nav {
 		left: 0;
@@ -13,16 +13,24 @@
 
 /* 768-1024px ~ tablet landscape */
 @media (min-width: 48.5em) {
-	#content { margin-right: 2.2em; }
+	#content { margin-left: 12.7em; margin-right: 2.2em; }
 	.page-section { padding: 2em 0; }
 	.section-body { padding-left: 2em; }
+
+	#nav {
+    width: 9em;
+	}
 }
 
 /* full size */
 @media (min-width: 70em) {
-	#content { margin-right: 12.5em; }
-	.page-section { padding: 2.4em 0; }
-	.section-body { padding-left: 2.4em; }
+	#content { margin-left: 13.7em; margin-right: 12.5em; }
+	.page-section { padding: 2em 0; }
+	.section-body { padding-left: 2em; }
+
+	#nav {
+    width: 10em;
+	}
 
 	#settings {
 		right: -155px;

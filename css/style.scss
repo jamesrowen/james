@@ -22,7 +22,7 @@ p.caption {
 }
 .dark p.caption { color: $muted-text-dark; }
 iframe { display: block; margin: 0 auto; }
-.underline { border-bottom: 1px solid #aaa; }
+.underline { border-bottom: 1px solid #999; }
 .dark .underline { border-bottom: 1px solid #777; }
 .lowercase { text-transform: lowercase; }
 .uppercase { text-transform: uppercase; }
@@ -33,7 +33,6 @@ iframe { display: block; margin: 0 auto; }
 
 /* page and content */
 #page {
-	margin-left: -190px;
 	font: normal 100% sans-serif;
   background-color: #eeece9;
   color: $text;
@@ -52,12 +51,13 @@ iframe { display: block; margin: 0 auto; }
 
 #content {
 	max-width: 50em;
-	margin: 0 1em 0 210px;
+	margin: 0 1em 0 .7em;
 	min-height: 100%;
 	box-shadow: none;
 	z-index: 999;
 }
 #content>:first-child { padding-top: 5.5em }
+#content>:last-child { padding-bottom: 2em }
 
 
 /* links */
@@ -170,8 +170,8 @@ ul.spaced li { margin-bottom: .6em; }
 #nav {
 	position: fixed;
 	top: 0;
-	left: -10.875em;
-	width: 10em;
+	left: -8.875em;
+	width: 8em;
 	height: 100%;
 	font-size: 1.1em;
 	padding: 1.5em 0 0 1.5em;
@@ -252,7 +252,7 @@ ul.spaced li { margin-bottom: .6em; }
 
 .section-body {
   margin-top: 1.7em;
-  padding-left: .625em;
+  padding-left: 1em;
 }
 
 
