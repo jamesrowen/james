@@ -13,7 +13,10 @@ $muted-text-dark: #c5c5c2;
 $middle-gray: #888;
 
 /* global styles */
-html, body { height: 100% }
+html, body {
+  height: 100%;
+  background-color: #eeece9;
+}
 p { margin-bottom: 1.2em; }
 p.caption {
   text-align: center;
@@ -33,7 +36,6 @@ p.caption {
 /* page and content */
 #page {
 	font: normal 100% sans-serif;
-  background-color: #eeece9;
   color: $text;
 	line-height: 1.4;
 	border-color: #ddd;
@@ -50,13 +52,11 @@ p.caption {
 
 #content {
 	max-width: 50em;
-	margin: 0 1em 0 .7em;
+	margin: 0 16px 0 .7em;
 	min-height: 100%;
 	box-shadow: none;
 	z-index: 999;
 }
-#content>:first-child { padding-top: 5.5em }
-#content>:last-child { padding-bottom: 2em }
 
 
 /* links */
@@ -220,7 +220,9 @@ ul.spaced li { margin-bottom: .6em; }
 
 
 /* page sections */
-.page-section { padding: 1.25em 0; }
+.page-section { margin: 2.5em 0; }
+.page-section:first-child { margin-top: 5.5em }
+.page-section:last-child { padding-bottom: 2.5em }
 
 .page-section h2 {
 	font-size: 1.9em;
@@ -251,7 +253,7 @@ ul.spaced li { margin-bottom: .6em; }
 
 .section-body {
   margin-top: 1.7em;
-  padding-left: 1em;
+  padding-left: 16px;
 }
 
 
