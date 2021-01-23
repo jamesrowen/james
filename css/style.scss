@@ -11,12 +11,13 @@ $text-dark: #eee;
 $muted-text: #656461;
 $muted-text-dark: #c5c5c2;
 $middle-gray: #888;
+$bg: #eeece9;
+$bg-dark: #222;
 
 /* global styles */
-html, body {
-  height: 100%;
-  background-color: #eeece9;
-}
+html, body { height: 100%; }
+body { background-color: $bg; }
+body.dark { background-color: $bg-dark; }
 p { margin-bottom: 1.2em; }
 p.caption {
   text-align: center;
@@ -40,18 +41,19 @@ p.caption {
 	line-height: 1.4;
 	border-color: #ddd;
 	min-height: 100%;
+  background-color: $bg;
 }
-#page.dark {
-	background-color: #222;
+.dark #page {
+  background-color: $bg-dark;
 	color: $text-dark;
 }
-#page.open-sans { font-family: "Open Sans", system-ui, sans-serif; }
-#page.lato { font-family: "Lato", system-ui, sans-serif; }
-#page.droid-sans { font-family: "Droid Sans", system-ui, sans-serif; }
-#page.oxygen { font-family: "Oxygen", system-ui, sans-serif; }
+.open-sans #page { font-family: "Open Sans", system-ui, sans-serif; }
+.lato #page { font-family: "Lato", system-ui, sans-serif; }
+.droid-sans #page { font-family: "Droid Sans", system-ui, sans-serif; }
+.oxygen #page { font-family: "Oxygen", system-ui, sans-serif; }
 
 #content {
-	max-width: 50em;
+	max-width: 48em;
 	margin: 0 16px 0 .7em;
 	min-height: 100%;
 	box-shadow: none;
@@ -149,9 +151,9 @@ a.project-link {
 /* icon */
 svg.icon { width: 14px; height: 14px; fill: $base-link; }
 .dark svg.icon { fill: $base-link-dark; }
-.red a:hover svg.icon { fill: $red; }
-.blue a:hover svg.icon { fill: $blue; }
-.green a:hover svg.icon { fill: $green; }
+.red #settings-btn:hover svg.icon { fill: $red; }
+.blue #settings-btn:hover svg.icon { fill: $blue; }
+.green #settings-btn:hover svg.icon { fill: $green; }
 
 
 /* lists */
@@ -181,7 +183,7 @@ ul.spaced li { margin-bottom: .6em; }
 	z-index: 1000;
 	box-shadow: 1px 1px 2px #444;
 	-webkit-transition: left .2s;
-	transition: left .2s;
+	transition: left .2s ease-out, width .2s ease-out;
 }
 @media screen and (min-height: 20em) {
 	#nav { padding-top: 2.5em; }
@@ -349,7 +351,6 @@ img.gallery {
 	-webkit-transition: right .3s;
 	transition: right .3s;
 }
-
 #settings.active { right: 0; }
 
 #settings-pane div {
@@ -371,6 +372,7 @@ img.gallery {
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
 	box-shadow: 0px 1px 2px $middle-gray;
+  cursor: pointer;
 	transition:
 		transform .3s linear,
 		left .3s linear;

@@ -12,8 +12,8 @@
 }
 
 /* 768-1024px ~ tablet landscape */
-@media (min-width: 50em) {
-	#content { margin-left: 12.7em; margin-right: 32px; }
+@media (min-width: 52em) {
+	#content { margin-left: 12.7em; margin-right: 48px; }
 	.page-section { margin: 4em 0; }
 	.section-body { padding-left: 32px; }
 

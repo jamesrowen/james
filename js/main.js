@@ -1,15 +1,15 @@
 // load and apply settings from localStorage
 const osTheme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 const theme = window.localStorage.getItem('homepage-theme') || osTheme;
-$('#page').addClass(theme);
+$('body').addClass(theme);
 const letterCase = window.localStorage.getItem('homepage-case') || 'lowercase';
 $('#nav,#settings,h2,h3').addClass(letterCase);
 const weight = window.localStorage.getItem('homepage-weight') || 'weight-bold';
 $('#nav,#settings').addClass(weight);
 const color = window.localStorage.getItem('homepage-color') || 'blue';
-$('#page').addClass(color);
+$('body').addClass(color);
 const font = window.localStorage.getItem('homepage-font') || 'lato';
-$('#page').addClass(font);
+$('body').addClass(font);
 $(`#${theme},#${letterCase},#${weight},#${color},#${font}`).addClass('active');
 
 // scope holds constant and global values
@@ -55,7 +55,7 @@ var maxScrollPos = $(window).height() - 65;
 
 	// toggle light/dark color scheme
 	$('#set-theme a').click(function(e) {
-		$('#page').removeClass('light dark').addClass(e.target.id.replace('#', ''));
+		$('body').removeClass('light dark').addClass(e.target.id.replace('#', ''));
     window.localStorage.setItem('homepage-theme', e.target.id.replace('#', ''));
 	});
 
@@ -73,13 +73,13 @@ var maxScrollPos = $(window).height() - 65;
 
 	// set link/button text color
 	$('#set-link-color a').click(function(e) {
-		$('#page').removeClass('red blue green').addClass(e.target.id.replace('#',''));
+		$('body').removeClass('red blue green').addClass(e.target.id.replace('#',''));
     window.localStorage.setItem('homepage-color', e.target.id.replace('#', ''));
 	});
 
 	// set font
 	$('#set-font a').click(function(e) {
-		$('#page').removeClass('open-sans lato droid-sans oxygen').addClass(e.target.id.replace('#',''));
+		$('body').removeClass('open-sans lato droid-sans oxygen').addClass(e.target.id.replace('#',''));
     window.localStorage.setItem('homepage-font', e.target.id.replace('#', ''));
 	});
 
