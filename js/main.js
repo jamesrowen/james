@@ -142,12 +142,13 @@ function mediaQueries() {
   $('#settings-link-icon').css('display', 'initial');
   $('#settings-link-text').css('display', 'none');
 	// set settings widget near bottom
-	$('#settings').css('top', $(window).height() - $('#settings').height() - 60 + 'px');
+	$('#settings').css('top', $(window).height() - $('#settings').height() - 32 + 'px');
 
 	// middle size
 	if (matchMedia('(min-width: 40.5em)').matches) {
 		// remove nav open/close event handler
 		$(window).unbind('click');
+  	$('#settings').css('top', $(window).height() - $('#settings').height() - 96 + 'px');
 	}
 	// mid-large size
 	if (matchMedia('(min-width: 52em)').matches) {

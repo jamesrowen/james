@@ -55,7 +55,7 @@ p.caption {
 
 #content {
 	max-width: 45em;
-	margin: 0 32px 0 14px;
+	margin: 0 18px 0 14px;
 	min-height: 100%;
 	box-shadow: none;
 	z-index: 999;
@@ -184,7 +184,7 @@ ul.spaced li { margin-bottom: .6em; }
 	z-index: 1000;
 	box-shadow: 1px 1px 2px #444;
 	-webkit-transition: left .2s;
-	transition: left .2s ease-out, width .2s ease-out;
+	transition: left .2s, padding-left .2s, width .2s;
 }
 @media screen and (min-height: 20em) {
 	#nav { padding-top: 2.5em; }
@@ -256,7 +256,7 @@ ul.spaced li { margin-bottom: .6em; }
 
 .section-body {
   margin-top: 1.7em;
-  padding-left: 26px;
+  padding-left: 20px;
 }
 
 
