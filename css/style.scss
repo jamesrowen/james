@@ -6,6 +6,7 @@ $blue: #1e98ad;
 $green: #05a881;
 $base-link: #6a6a6a;
 $base-link-dark: #b6b6b6;
+$link-hover: #c12f02;
 $text: #292719;
 $text-dark: #eee;
 $muted-text: #656461;
@@ -122,7 +123,7 @@ a.project-link {
 }
 
 #content a:hover {
-	color: #c15202;
+	color: $link-hover;
 }
 #content a.project-title { color: inherit; }
 
@@ -363,9 +364,9 @@ img.gallery {
 	text-align: left;
 	position: absolute;
 	top: 143px;
-	left: -36px;
-	width: 20px;
-	padding: 6px 4px 5px 10px;
+	left: -31px;
+	width: 16px;
+	padding: 4px 6px 3px 7px;
 	border-left: 1px solid;
 	border-top: 1px solid;
 	border-bottom: 1px solid;
@@ -398,14 +399,14 @@ img.gallery {
 code {
 	display: inline-block;
 	font-family: monospace;
-	font-weight: bold;
-	background-color: #e5e0da;
-	border: 1px solid #ccc;
+	background-color: #eae6df;
+	border: 1px solid #d8d4d4;
 	border-radius: 2px;
-	padding: 2px 6px;
+	padding: 1px 4px;
+	margin: 0 4px;
 	vertical-align: top;
 }
-.dark code { }
+.dark code { background-color: #292827; border-color: #403e3e; }
 
 /* scrollbar */
 #scrollbar {

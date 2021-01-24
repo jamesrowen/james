@@ -1,6 +1,6 @@
 /* 640-768px ~ mobile landscape / tablet portrait */
 @media (min-width: 40.5em) {
-	#content { margin-left: 11.7em; margin-right: 24px; }
+	#content { margin-left: 11.7em; margin-right: 38px; }
 
 	#nav {
 		left: 0;
@@ -13,7 +13,7 @@
 
 /* 768-1024px ~ tablet landscape */
 @media (min-width: 52em) {
-	#content { margin-left: 12.7em; margin-right: 48px; }
+	#content { margin-left: 12.7em; margin-right: 50px; }
 	.page-section { margin: 4em 0; }
 	.section-body { padding-left: 32px; }
 
