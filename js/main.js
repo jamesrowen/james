@@ -129,6 +129,9 @@ function onResize(e) {
 function mediaQueries() {
 	// mobile - default
 
+  // give images at the top of pages placeholders
+  $('img.section-header').css('min-height', $('img.section-header').width() / 1.86);
+
 	// click on nav menu to open, click anywhere to close
 	$(window).unbind('click').click(function(e) {
     if (document.getElementById('nav').contains(e.target)) {
