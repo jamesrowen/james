@@ -1,4 +1,5 @@
 // load and apply settings from localStorage
+$('body').removeClass();
 const osTheme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 const theme = window.localStorage.getItem('homepage-theme') || osTheme;
 $('body').addClass(theme);
@@ -116,8 +117,6 @@ var maxScrollPos = $(window).height() - 65;
 
 
 function onResize(e) {
-	// vertically center settings widget
-	$('#settings').css('top', ($(window).height()-$('#settings').height())/2 + 'px');
 
 	// update scrollbar position
 	$(document).trigger('scroll');
@@ -142,17 +141,21 @@ function mediaQueries() {
 	// show cog icon for settings menu button
   $('#settings-link-icon').css('display', 'initial');
   $('#settings-link-text').css('display', 'none');
+	// set settings widget near bottom
+	$('#settings').css('top', $(window).height() - $('#settings').height() - 60 + 'px');
 
 	// middle size
-	if (matchMedia('(min-width: 40.5em)').matches)
-	{
+	if (matchMedia('(min-width: 40.5em)').matches) {
 		// remove nav open/close event handler
-		$(window).unbind('click').removeClass('active');
+		$(window).unbind('click');
 	}
-
+	// mid-large size
+	if (matchMedia('(min-width: 52em)').matches) {
+    // vertically center settings widget
+    $('#settings').css('top', ($(window).height()-$('#settings').height())/2 + 'px');
+  }
 	// full size
-	if (matchMedia('(min-width: 70em)').matches)
-	{
+	if (matchMedia('(min-width: 70em)').matches) {
 		// show text in settings menu link
     $('#settings-link-icon').css('display', 'none');
     $('#settings-link-text').css('display', 'initial');

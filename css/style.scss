@@ -54,8 +54,8 @@ p.caption {
 .oxygen #page { font-family: "Oxygen", system-ui, sans-serif; }
 
 #content {
-	max-width: 48em;
-	margin: 0 16px 0 .7em;
+	max-width: 45em;
+	margin: 0 32px 0 14px;
 	min-height: 100%;
 	box-shadow: none;
 	z-index: 999;
@@ -172,11 +172,11 @@ ul.spaced li { margin-bottom: .6em; }
 #nav {
 	position: fixed;
 	top: 0;
-	left: -8.875em;
-	width: 8em;
+	left: -7.9em;
+	width: 7.5em;
 	height: 100%;
 	font-size: 1.1em;
-	padding: 1.5em 0 0 1.5em;
+	padding: 1.5em 0 0 1.2em;
 	line-height: 1.6;
 	color: $base-link;
 	border-right: 1px solid #ddd;
@@ -224,7 +224,7 @@ ul.spaced li { margin-bottom: .6em; }
 
 /* page sections */
 .page-section { margin: 2.5em 0; }
-.page-section:first-child { margin-top: 5.5em }
+.page-section:first-child { margin-top: 4em }
 .page-section:last-child { padding-bottom: 2.5em }
 
 .page-section h2 {
@@ -256,7 +256,7 @@ ul.spaced li { margin-bottom: .6em; }
 
 .section-body {
   margin-top: 1.7em;
-  padding-left: 16px;
+  padding-left: 26px;
 }
 
 
@@ -336,7 +336,7 @@ img.gallery {
 #settings {
 	position: fixed;
 	right: -163px;
-	top: 250px;
+	bottom: 2em;
 	height: 260px;
 	width: 150px;
 	border: 1px solid;

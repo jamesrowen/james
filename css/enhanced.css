@@ -1,24 +1,26 @@
 /* 640-768px ~ mobile landscape / tablet portrait */
 @media (min-width: 40.5em) {
-	#content { margin-left: 11.7em; margin-right: 38px; }
+	#content { margin-left: 10.1em; margin-right: 42px; }
+  .page-section:first-child { margin-top: 5em }
 
 	#nav {
 		left: 0;
-		padding-left: 2.5em;
+		padding-left: 1.6em;
 	}
 
 	.page-section { margin: 3em 0; }
-	.section-body { padding-left: 24px; }
+	.section-body { padding-left: 32px; }
 }
 
 /* 768-1024px ~ tablet landscape */
 @media (min-width: 52em) {
-	#content { margin-left: 12.7em; margin-right: 50px; }
+	#content { margin-left: 12.3em; margin-right: 50px; }
 	.page-section { margin: 4em 0; }
-	.section-body { padding-left: 32px; }
+	.section-body { padding-left: 40px; }
 
 	#nav {
     width: 9em;
+    padding-left: 2.1em;
 	}
 }
 
@@ -28,6 +30,7 @@
 
 	#nav {
     width: 10em;
+    padding-left: 2.5em;
 	}
 
 	#settings {
