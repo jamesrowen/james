@@ -75,8 +75,8 @@ a {
 .dark a { color: $base-link-dark; }
 a.project-link {
   display: inline-block;
-	font-size: .5em;
-  margin-left: 10px;
+	font-size: .45em;
+  margin-left: 8px;
 }
 
 .red a.active {
@@ -243,8 +243,7 @@ ul.spaced li { margin-bottom: .6em; }
 }
 
 .page-section h4 {
-	font-size: 1.6em;
-	margin: .1em 0;
+	font-size: 1.7em;
 	font-weight: bold;
 	-webkit-transition: color .2s ease-out;
 	transition: color .2s ease-out;
@@ -305,7 +304,7 @@ img.gallery {
   transition: opacity .2s ease-out;
 }
 .overlay.dark {
-  background-color: #aaaa9a25;
+  background-color: #aaaa9a15;
 }
 .image-overlay:hover .overlay {
   opacity: 1;
@@ -314,7 +313,7 @@ img.gallery {
 
 /* homepage and resume */
 .project-date {
-  font-size: .65em;
+  font-size: .55em;
   color: $muted-text;
   display: inline-block;
   margin-left: 6px;
