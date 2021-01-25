@@ -6,7 +6,7 @@ $blue: #1e98ad;
 $green: #05a881;
 $base-link: #6a6a6a;
 $base-link-dark: #b6b6b6;
-$link-hover: #c12f02;
+$link-hover: #c16d02;
 $text: #292719;
 $text-dark: #eee;
 $muted-text: #656461;
@@ -76,7 +76,7 @@ a {
 a.project-link {
   display: inline-block;
 	font-size: .5em;
-  margin-left: 14px;
+  margin-left: 10px;
 }
 
 .red a.active {
@@ -244,7 +244,7 @@ ul.spaced li { margin-bottom: .6em; }
 
 .page-section h4 {
 	font-size: 1.6em;
-	margin: .1em 0 .2em;
+	margin: .1em 0;
 	font-weight: bold;
 	-webkit-transition: color .2s ease-out;
 	transition: color .2s ease-out;
@@ -294,7 +294,7 @@ img.gallery {
   display: inline-block;
 }
 .overlay {
-  background-color: #eaeae01a;
+  background-color: #eaeae025;
   position: absolute;
   top: 0;
   right: -2px;
@@ -305,7 +305,7 @@ img.gallery {
   transition: opacity .2s ease-out;
 }
 .overlay.dark {
-  background-color: #aaaa9a1a;
+  background-color: #aaaa9a25;
 }
 .image-overlay:hover .overlay {
   opacity: 1;
@@ -313,6 +313,13 @@ img.gallery {
 
 
 /* homepage and resume */
+.project-date {
+  font-size: .65em;
+  color: $muted-text;
+  display: inline-block;
+  margin-left: 6px;
+}
+.dark .project-date { color: $muted-text-dark; }
 .project-blurb {
 	padding: .3em 0;
 	margin-bottom: 2.3em;

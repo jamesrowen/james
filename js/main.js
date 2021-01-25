@@ -169,7 +169,7 @@ function mediaQueries() {
 function onScroll(e) {
 	// set my scrollbar to the correct position
 	var scrollPct = $(document).scrollTop() / ($(document).height() - $(window).height());
-	var trackHeight = $(window).height() - minScrollPos - 49;
+	var trackHeight = $(window).height() - minScrollPos - 50;
 	$('#scrollbar').css('top', (minScrollPos + trackHeight * scrollPct) + 'px');
 
 	// update highlighted link in nav menu
