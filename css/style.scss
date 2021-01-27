@@ -9,8 +9,8 @@ $base-link-dark: #b6b6b6;
 $link-hover: #c16d02;
 $text: #292719;
 $text-dark: #eee;
-$muted-text: #656461;
-$muted-text-dark: #c5c5c2;
+$muted-text: #747372;
+$muted-text-dark: #d6d6d6;
 $middle-gray: #888;
 $bg: #eeece9;
 $bg2: #eae6df;
@@ -77,6 +77,12 @@ a.project-link {
   display: inline-block;
 	font-size: .45em;
   margin-left: 8px;
+}
+a.project-header-link {
+  display: inline-block;
+	font-size: .4em;
+  margin-right: 16px;
+  text-transform: uppercase !important;
 }
 
 .red a.active {
@@ -243,6 +249,7 @@ ul.spaced li { margin-bottom: .6em; }
 }
 
 .page-section h4 {
+  margin-top: -2px;
 	font-size: 1.7em;
 	font-weight: bold;
 	-webkit-transition: color .2s ease-out;
@@ -316,7 +323,7 @@ img.gallery {
   font-size: .55em;
   color: $muted-text;
   display: inline-block;
-  margin-left: 6px;
+  margin-left: 3px;
 }
 .dark .project-date { color: $muted-text-dark; }
 .project-blurb {
