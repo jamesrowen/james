@@ -421,7 +421,7 @@ code {
 	border-radius: 2px;
 	padding: 1px 4px;
 	margin: 0 4px;
-	vertical-align: top;
+	vertical-align: middle;
 }
 .dark code { background-color: $bg2-dark; border-color: #403e3e; }
 
@@ -449,10 +449,14 @@ code {
 
 /* youtube video embed */
 .video-container {
+  background-color: $bg2;
   position: relative;
   padding-bottom: 56.25%;
   height: 0;
   overflow: hidden;
+}
+.dark .video-container {
+  background-color: $bg2-dark;
 }
 .video-container iframe {
   position: absolute;
