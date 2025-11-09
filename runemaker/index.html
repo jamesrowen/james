@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTHERSTORY RUNEMAKER</title>
+    <style>
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 0.8em;
+            display: flex;
+            gap: 20px;
+            color: #222;
+        }
+        button {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        h3 {
+          font-size: 1em;
+          text-transform: uppercase;
+          color: #000;
+          margin-top: 10px;
+          margin-bottom: 10px;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+
+        .app-title {
+          font-weight: bold;
+          text-align: center;
+          padding: 8px;
+          border-bottom: 1px solid #ccc;
+          color: #3a3333;
+        }
+        /* --- Fixed Tab Container --- */
+        #tab-container {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+            max-height: 97vh;
+            overflow-y: auto;
+
+            width: 248px;
+            padding: 0;
+            border: 1px solid #ccc;
+            background-color: #fcfcfc;
+        }
+        .tab-menu {
+            display: flex;
+            border-bottom: 1px solid #ccc;
+        }
+        .tab-menu button {
+            flex-grow: 1;
+            padding: 10px;
+            cursor: pointer;
+            border: none;
+            background-color: #f0f0f0;
+            transition: background-color 0.2s;
+        }
+        .tab-menu button.active {
+            background-color: #f9f9f9;
+            font-weight: bold;
+            border-bottom: 2px solid #ea6a12;
+        }
+        .tab-content {
+            padding: 10px;
+        }
+        .tab-pane {
+            display: none;
+        }
+        .tab-pane.active {
+            display: block;
+        }
+
+        /* --- Canvas Positioning Adjustment --- */
+        #canvas-container {
+            /* Offset canvas container from the fixed controls */
+            margin-left: 262px;
+            margin-top: 50px;
+        }
+
+        /* --- Control Group (Grid Layout) Styles --- */
+        .control-group {
+            display: grid;
+            grid-template-columns: 1fr max-content;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+        .control-group label {
+            display: inline;
+            margin-bottom: 0;
+            font-weight: normal;
+            text-align: left;
+        }
+        input[type="range"] {
+          accent-color: #e7bf9f;
+        }
+        input[type="number"],
+        input[type="text"],
+        input[type="color"] {
+            width: 60px;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+
+        /* Textarea and full-width containers */
+        .control-group.full-width {
+            grid-template-columns: 1fr;
+        }
+        .control-group.full-width label {
+            margin-bottom: 5px;
+        }
+
+        /* --- Editor Specific Styles --- */
+        .segment-select-btn.selected { /* Updated class name */
+            background-color: #fcc6b3 !important;
+            font-weight: bold;
+            border-radius: 3px;
+        }
+        #runeCanvas {
+            border: 1px solid black;
+            background-color: white;
+        }
+        .rune-select-btn {
+            width: 28px;  /* Fixed width */
+            height: 28px; /* Fixed height (making them squares) */
+            display: flex; /* Ensures text stays centered */
+            justify-content: center;
+            align-items: center;
+        }
+        .delete-btn {
+            padding: 5px 0px; /* Use smaller padding for better alignment with presets */
+            color: #ea6a12; /* Dark orange text color */
+            cursor: pointer;
+            text-align: center;
+            width: 24px;
+            border-width: 1px;
+        }
+        .delete-confirm-btn {
+            background-color: #f06157;
+            color: #f0f0f0;
+            cursor: pointer;
+            text-align: center;
+            padding: 5px 0px;
+            width: 24px;
+            border-width: 1px;
+        }
+        #top-bar {
+            position: fixed;
+            top: 10px;
+            left: 300px;
+            right: 300px;
+            z-index: 2000;
+            padding: 5px 15px;
+            background-color: #fcfcfc;
+            border: 1px solid #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        #canvasZoom {
+            width: 90px;
+        }
+        #top-bar label {
+            white-space: nowrap;
+        }
+        #top-bar input[type="number"],
+        #top-bar input[type="text"] {
+             width: 50px;
+             padding: 3px;
+        }
+        #notification-area {
+            position: fixed;
+            top: -50px; /* Hidden position (slide down to show) */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3000; /* Highest priority */
+            padding: 10px 20px;
+            background-color: #52b783; /* Green background for success */
+            color: white;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transition: top 0.4s ease-out, opacity 0.4s ease-out;
+        }
+        #notification-area.show {
+            top: 55px; /* Visible position, just below the top bar */
+            opacity: 1;
+        }
+        #notification-area.error {
+            background-color: #b75271; /* Red for errors/failures */
+        }
+        .export-format-btn {
+            padding: 5px 8px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            background-color: #f5f5f5;
+            font-weight: bold;
+            transition: background-color .3s ease;
+        }
+        .export-format-btn:hover {
+            background-color: #e7bf9f;
+        }
+        .range-label {
+          border: 1px solid #ccc;
+          border-radius: 3px;
+          padding: 4px;
+          background-color: #f3f3f3;
+          color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div id="notification-area">
+    </div>
+
+    <div id="top-bar">
+        <label for="canvasWidth">Width:</label>
+        <input type="number" id="canvasWidth" value="900" min="200" step="100" style="width: 60px;">
+
+        <label for="canvasHeight">Height:</label>
+        <input type="number" id="canvasHeight" value="5000" min="500" step="100" style="width: 60px;">
+
+        <label for="canvasZoom">Zoom:</label>
+        <input type="range" id="canvasZoom" value="1.0" min="0.1" max="1.5" step="0.1">
+        <span id="zoomValueLabel" class="range-label">1.0x</span>
+
+        <label for="canvasPadding">Padding:</label>
+        <input type="text" id="canvasPadding" value="20" style="width: 45px;">
+
+        <label>Export:</label>
+        <div id="export-format-buttons" style="display: flex; gap: 5px;">
+            <button id="exportBtn_png" class="export-format-btn" data-format="image/png">PNG</button>
+            <button id="exportBtn_jpeg" class="export-format-btn" data-format="image/jpeg">JPG</button>
+            <button id="exportBtn_svg" class="export-format-btn" data-format="image/svg+xml">SVG</button>
+        </div>
+    </div>
+
+    <div id="tab-container">
+
+        <div class="app-title">
+            OTHERSTORY RUNEMAKER
+        </div>
+
+            <div class="tab-menu">
+                <button id="generator-tab" class="tab-button active" onclick="openTab(event, 'generator')">Generator</button>
+                <button id="editor-tab" class="tab-button" onclick="openTab(event, 'editor')">Editor</button>
+            </div>
+
+        <div id="tab-content-wrapper">
+
+            <div id="generator" class="tab-pane active tab-content">
+                <div id="controls">
+
+                  <h3 style="margin-top:0px">Text</h3>
+                    <div class="control-group full-width">
+                        <textarea id="textInput">Hello and welcome to the highly advanced rune generation experience
+                        </textarea>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="runeSize">Rune Size (px):</label>
+                        <input type="number" id="runeSize" min="50">
+                    </div>
+
+                    <div class="control-group">
+                        <label for="thickness">Line Thickness (px):</label>
+                        <input type="number" id="thickness" min="1">
+                    </div>
+                    <div class="control-group">
+                        <label for="cornerRadius">Corner Radius (px):</label>
+                        <input type="number" id="cornerRadius" min="0">
+                    </div>
+                    <div class="control-group">
+                        <label for="charSpacing">Character Spacing:</label>
+                        <input type="text" id="charSpacing">
+                    </div>
+                    <div class="control-group">
+                        <label for="lineSpacing">Line Spacing:</label>
+                        <input type="text" id="lineSpacing">
+                    </div>
+                    <div class="control-group">
+                        <label for="spaceWidth">Space Width:</label>
+                        <input type="text" id="spaceWidth">
+                    </div>
+                    <div class="control-group">
+                        <label for="enableWordWrap">Word Wrap:</label>
+                        <input type="checkbox" id="enableWordWrap">
+                    </div>
+                    <div class="control-group">
+                        <label for="fillColor">Fill Color:</label>
+                        <input type="color" id="fillColor">
+                    </div>
+                    <div class="control-group">
+                        <label for="borderColor">Border Color:</label>
+                        <input type="color" id="borderColor">
+                    </div>
+                    <div class="control-group">
+                        <label for="borderThickness">Border Thickness (px):</label>
+                        <input type="number" id="borderThickness"min="0">
+                    </div>
+                    <div class="control-group">
+                        <label for="backgroundColor">Background Color:</label>
+                        <input type="color" id="backgroundColor">
+                    </div>
+                    <div class="control-group">
+                        <label for="showBoundingBox">Show Bounding Box:</label>
+                        <input type="checkbox" id="showBoundingBox">
+                    </div>
+
+                    <hr />
+                    <h3>Presets</h3>
+                    <div class="control-group full-width" style="margin-top: 10px;">
+                        <div id="settings-list-container" style="max-height: 150px; overflow-y: auto; border: 1px solid #ddd; padding: 3px;">
+                            <p style="font-size: small; color: #888;">No settings saved.</p>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label for="settingsPresetName">Preset Name:</label>
+                        <input type="text" id="settingsPresetName" value="" style="width: 120px;">
+                    </div>
+                    <div class="control-group full-width">
+                        <button id="saveSettingsBtn" style="padding: 5px;">Save Preset</button>
+                    </div>
+                    <div class="control-group full-width" style="margin-bottom: 10px;">
+                        <button id="exportSettingsBtn" style="padding: 5px;">Copy JSON</button>
+                    </div>
+
+                    <hr />
+                    <h3>Text Presets</h3>
+                    <div class="control-group full-width">
+                        <div id="preset-list-container" style="max-height: 150px; overflow-y: auto; border: 1px solid #999; padding: 3px;">
+                            <p style="font-size: small; color: #888;">No presets saved.</p>
+                        </div>
+                    </div>
+                    <div class="control-group full-width">
+                        <button id="savePresetBtn" style="padding: 5px;">Save Current Text</button>
+                        <button id="exportTextPresetsBtn" style="padding: 5px;">Copy JSON</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="editor" class="tab-pane tab-content">
+                <div id="editor-panel">
+
+                    <h3 style="margin-top:0px">Rune</h3>
+                    <div class="control-group full-width">
+                        <div id="rune-selector-buttons" style="display: flex; flex-wrap: wrap; gap: 5px;">
+                            <p style="font-size: small; color: #888;">Loading runes...</p>
+                        </div>
+                    </div>
+
+                    <hr>
+                    <h3>Segments</h3>
+                    <button id="add-component-btn" style="width: 100%; margin-bottom: 10px; padding: 5px;">+ Add New Segment</button>
+                    <div style="display: flex; gap: 5px; margin-bottom: 10px;">
+                        <button id="copy-component-btn" style="flex-grow: 1; padding: 5px;" disabled>Copy</button>
+                        <button id="paste-component-btn" style="flex-grow: 1; padding: 5px;" disabled>Paste</button>
+                    </div>
+                    <div id="component-list" style="max-height: 150px; overflow-y: auto;">
+                        <p style="font-size: small; color: #888;">Select a rune to begin editing.</p>
+                    </div>
+
+                    <hr>
+                    <h3>Segment Properties</h3>
+                    <div id="property-inputs">
+                        <p style="font-size: small; color: #888;">Select a segment above to edit its properties.</p>
+                    </div>
+
+                    <hr>
+                    <h3>Runesets</h3>
+                    <div class="control-group full-width" style="margin-top: 10px;">
+                        <div id="rune-sets-list-container" style="max-height: 150px; overflow-y: auto; border: 1px solid #ddd; padding: 3px;">
+                            <p style="font-size: small; color: #888;">No sets saved.</p>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label for="runeSetName">Runeset:</label>
+                        <input type="text" id="runeSetName" value="" style="width: 120px;">
+                    </div>
+                    <div class="control-group full-width">
+                        <button id="saveRuneSetBtn" style="padding: 5px;">Save Runeset</button>
+                    </div>
+
+                    <hr>
+                    <button id="runeset-export-btn" style="width: 100%; padding: 5px;">Copy JSON</button>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div id="canvas-container">
+        <canvas id="runeCanvas"></canvas>
+    </div>
+
+    <script src="data/text-presets.js"></script>
+    <script src="data/settings-presets.js"></script>
+    <script src="data/runesets.js"></script>
+    <script src="svg-export.js"></script>
+    <script src="rune-editor.js"></script>
+    <script src="preset-manager.js"></script>
+    <script src="rune-generator.js"></script>
+
+    <script>
+        function openTab(event, tabId) {
+            document.querySelectorAll('.tab-pane').forEach(pane => {
+                pane.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+            document.getElementById(`${tabId}-tab`).classList.add('active');
+            if (tabId === 'generator') {
+              event.preventDefault();
+              document.getElementById('textInput').focus();
+            }
+        }
+    </script>
+</body>
+</html>
