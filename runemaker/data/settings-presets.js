@@ -1,4 +1,4 @@
-{
+const SettingsPresets = {
     "Coffee": {
         "runeSize": 100,
         "thickness": 25,
@@ -125,4 +125,4 @@
         "showBoundingBox": false,
         "enableWordWrap": false
     }
-}
+};
