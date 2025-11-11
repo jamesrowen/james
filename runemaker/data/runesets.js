@@ -1,4 +1,4 @@
- const RuneSets = {
+const RuneSets = {
     "Jimmy": {
         "0": [
             {
@@ -615,7 +615,7 @@
             {
                 "start": "BL",
                 "direction": 0,
-                "length": "3x",
+                "length": "3.5x",
                 "xOff": 0,
                 "yOff": "-2.5x",
                 "corners": [
@@ -638,7 +638,7 @@
                 "start": "BL",
                 "length": "2.5x",
                 "direction": 270,
-                "xOff": "2x",
+                "xOff": "2.5x",
                 "yOff": "0",
                 "corners": [
                     2
@@ -1602,10 +1602,10 @@
             },
             {
                 "start": "BL",
-                "length": "4.1x",
-                "direction": 326,
+                "length": "4x",
+                "direction": 332,
                 "xOff": "0",
-                "yOff": "-1.5x",
+                "yOff": "-2x",
                 "corners": [
                     3
                 ]
@@ -5682,4 +5682,4 @@
             "type": "LINE_BREAK"
         }
     }
-};
+}
