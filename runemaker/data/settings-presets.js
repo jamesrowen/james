@@ -1,4 +1,4 @@
-const SettingsPresets = {
+{
     "Coffee": {
         "runeSize": 100,
         "thickness": 25,
@@ -10,6 +10,7 @@ const SettingsPresets = {
         "borderColor": "#666666",
         "borderThickness": 0,
         "backgroundColor": "#220f02",
+        "backgroundTransparent": false,
         "canvasWidth": 1800,
         "canvasHeight": 5000,
         "canvasPadding": "80",
@@ -28,6 +29,7 @@ const SettingsPresets = {
         "borderColor": "#666666",
         "borderThickness": 0,
         "backgroundColor": "#7c240e",
+        "backgroundTransparent": false,
         "canvasWidth": 1500,
         "canvasHeight": 5000,
         "canvasPadding": "60",
@@ -46,6 +48,7 @@ const SettingsPresets = {
         "borderColor": "#666666",
         "borderThickness": 0,
         "backgroundColor": "#090222",
+        "backgroundTransparent": false,
         "canvasWidth": 2000,
         "canvasHeight": 5000,
         "canvasPadding": "80",
@@ -64,6 +67,7 @@ const SettingsPresets = {
         "borderColor": "#666666",
         "borderThickness": 0,
         "backgroundColor": "#1b0222",
+        "backgroundTransparent": false,
         "canvasWidth": 2300,
         "canvasHeight": 5000,
         "canvasPadding": "90",
@@ -82,6 +86,7 @@ const SettingsPresets = {
         "borderColor": "#666666",
         "borderThickness": 0,
         "backgroundColor": "#ff9147",
+        "backgroundTransparent": false,
         "canvasWidth": 2200,
         "canvasHeight": 6400,
         "canvasPadding": "250",
@@ -100,6 +105,7 @@ const SettingsPresets = {
         "borderColor": "#f90be5",
         "borderThickness": 4,
         "backgroundColor": "#ffe0e7",
+        "backgroundTransparent": false,
         "canvasWidth": 1800,
         "canvasHeight": 5000,
         "canvasPadding": "20",
@@ -118,6 +124,7 @@ const SettingsPresets = {
         "borderColor": "#666666",
         "borderThickness": 0,
         "backgroundColor": "#fff8ee",
+        "backgroundTransparent": false,
         "canvasWidth": 900,
         "canvasHeight": 5000,
         "canvasPadding": "20",
@@ -125,4 +132,4 @@ const SettingsPresets = {
         "showBoundingBox": false,
         "enableWordWrap": false
     }
-};
+}

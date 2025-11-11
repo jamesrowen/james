@@ -238,7 +238,6 @@
         <label>Export:</label>
         <div id="export-format-buttons" style="display: flex; gap: 5px;">
             <button id="exportBtn_png" class="export-format-btn" data-format="image/png">PNG</button>
-            <button id="exportBtn_jpeg" class="export-format-btn" data-format="image/jpeg">JPG</button>
             <button id="exportBtn_svg" class="export-format-btn" data-format="image/svg+xml">SVG</button>
         </div>
     </div>
@@ -269,7 +268,6 @@
                         <label for="runeSize">Rune Size (px):</label>
                         <input type="number" id="runeSize" min="50">
                     </div>
-
                     <div class="control-group">
                         <label for="thickness">Line Thickness (px):</label>
                         <input type="number" id="thickness" min="1">
@@ -309,6 +307,10 @@
                     <div class="control-group">
                         <label for="backgroundColor">Background Color:</label>
                         <input type="color" id="backgroundColor">
+                    </div>
+                    <div class="control-group">
+                        <label for="backgroundTransparent">Transparent Background:</label>
+                        <input type="checkbox" id="backgroundTransparent">
                     </div>
                     <div class="control-group">
                         <label for="showBoundingBox">Show Bounding Box:</label>

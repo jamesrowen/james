@@ -97,6 +97,7 @@ function updateUIParams() {
     borderColor = document.getElementById('borderColor').value;
     borderThickness = parseFloat(document.getElementById('borderThickness').value);
     backgroundColor = document.getElementById('backgroundColor').value;
+    backgroundTransparent = document.getElementById('backgroundTransparent').checked;
     showBoundingBox = document.getElementById('showBoundingBox').checked;
     enableWordWrap = document.getElementById('enableWordWrap').checked;
 
@@ -241,8 +242,10 @@ function drawRunes() {
     canvas.height = canvasHeight * canvasZoom;
 
     ctx.save();
-    ctx.fillStyle = backgroundColor;
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    if (!backgroundTransparent) {
+      ctx.fillStyle = backgroundColor;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
     ctx.scale(canvasZoom, canvasZoom);
 
     let currentX = canvasPadding;

@@ -11,7 +11,9 @@ function generateSvgContent() {
     const finalHeight = canvasHeight; // Using fixed height for scrollable content
 
     let svg = `<svg width="${finalWidth}" height="${finalHeight}" viewBox="0 0 ${finalWidth} ${finalHeight}" xmlns="http://www.w3.org/2000/svg">`;
-    svg += `<rect width="100%" height="100%" fill="${backgroundColor}" />`;
+    if (!backgroundTransparent) {
+      svg += `<rect width="100%" height="100%" fill="${backgroundColor}" />`;
+    }
 
     // --- 2. START DRAWING LOOP (Unscaled Coordinates) ---
     let currentX = canvasPadding;

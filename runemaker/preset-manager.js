@@ -143,6 +143,7 @@ function captureCurrentSettings() {
         borderColor: document.getElementById('borderColor').value,
         borderThickness: parseFloat(document.getElementById('borderThickness').value),
         backgroundColor: document.getElementById('backgroundColor').value,
+        backgroundTransparent: document.getElementById('backgroundTransparent').checked,
         canvasWidth: parseFloat(document.getElementById('canvasWidth').value),
         canvasHeight: parseFloat(document.getElementById('canvasHeight').value),
         canvasPadding: document.getElementById('canvasPadding').value,
