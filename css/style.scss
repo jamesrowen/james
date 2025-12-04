@@ -1,21 +1,23 @@
 ---
 ---
 /* colors */
-$red: #c53915;
-$blue: #1e98ad;
-$green: #05a881;
-$base-link: #6a6a6a;
-$base-link-dark: #b6b6b6;
-$link-hover: #c11959;
-$text: #292719;
-$text-dark: #eee;
-$muted-text: #747372;
-$muted-text-dark: #bbb;
-$middle-gray: #888;
-$bg: #eeece9;
-$bg2: #eae6df;
-$bg-dark: #222;
-$bg2-dark: #292827;
+{
+	$red: #c53915;
+	$blue: #1e98ad;
+	$green: #05a881;
+	$base-link: #6a6a6a;
+	$base-link-dark: #b6b6b6;
+	$link-hover: #c11959;
+	$text: #292719;
+	$text-dark: #eee;
+	$muted-text: #747372;
+	$muted-text-dark: #bbb;
+	$middle-gray: #888;
+	$bg: #eeece9;
+	$bg2: #eae6df;
+	$bg-dark: #222;
+	$bg2-dark: #292827;
+}
 
 /* global styles */
 html, body { height: 100%; }
