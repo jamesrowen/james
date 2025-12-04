@@ -28,6 +28,16 @@ p.caption {
   color: $muted-text;
 }
 .dark p.caption { color: $muted-text-dark; }
+blockquote {
+	font-style: italic;
+	display: block;
+	padding: 1em;
+	background-color: darken($bg, 5%);
+	border-radius: 3px;
+	margin-bottom: 1.2em;
+}
+blockquote :last-child { margin-bottom: 0; }
+.dark blockquote { background-color: lighten($bg-dark, 5%); }
 .underline { border-bottom: 1px solid #999; }
 .dark .underline { border-bottom: 1px solid #777; }
 .lowercase { text-transform: lowercase; }
@@ -170,9 +180,11 @@ svg.icon { width: 14px; height: 14px; fill: $base-link; }
 	list-style: square;
 	margin: 1.2em 2em;
 }
+.page-section ul ul {
+	margin: .5em 1.5em;
+}
 #resume ul { margin: .6em 2em; }
 #nav ul { list-style: none; margin-top: 2px; }
-
 ul.spaced li { margin-bottom: .6em; }
 
 
@@ -210,9 +222,6 @@ ul.spaced li { margin-bottom: .6em; }
 }
 #nav a:hover { margin-left: 5px; }
 #nav a#homelink:hover { margin-left: 0; }
-#email:hover { color: $red; }
-#github:hover { color: $green; }
-#linkedin:hover { color: $blue; }
 
 #nav h1 { font-size:1.1em; font-weight:normal; }
 
@@ -331,11 +340,18 @@ img.gallery {
 	margin-bottom: 2.3em;
 }
 .post-blurb {
+	padding: .3em 0;
 	margin: 1.5em 0;
 }
 .post-blurb h4 {
-	margin-bottom: .4em;
+	margin: .1em 0;
 }
+.post-date {
+  font-size: 1em;
+	font-weight: bold;
+  color: $muted-text;
+}
+.dark .post-date { color: $muted-text-dark; }
 
 .experience-heading {
 	display: flex;

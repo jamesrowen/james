@@ -15,7 +15,7 @@
 /* 768-1024px ~ tablet landscape */
 @media (min-width: 52em) {
 	#content { margin-left: 12.3em; margin-right: 50px; }
-	.page-section { margin: 5em 0; }
+	.page-section { margin: 4em 0; }
 	.section-body { padding-left: 40px; }
 
 	#nav {
