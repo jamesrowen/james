@@ -6,7 +6,7 @@ $blue: #1e98ad;
 $green: #05a881;
 $base-link: #6a6a6a;
 $base-link-dark: #b6b6b6;
-$link-hover: #c11959;
+$link-hover: #37d998;
 $text: #292719;
 $text-dark: #eee;
 $muted-text: #747372;
@@ -14,7 +14,7 @@ $muted-text-dark: #bbb;
 $middle-gray: #888;
 $bg: #eeece9;
 $bg2: #eae6df;
-$bg-dark: #222;
+$bg-dark: #1f1f1f;
 $bg2-dark: #292827;
 
 /* global styles */
@@ -44,14 +44,14 @@ blockquote :last-child { margin-bottom: 0; }
 .uppercase { text-transform: uppercase; }
 .weight-normal { font-weight: normal; }
 .weight-bold { font-weight: bold; }
-.largetext { font-size: 1.1em; line-height: 1.5; }
+.largetext { font-size: 1.1em; line-height: 1.6; }
 
 
 /* page and content */
 #page {
 	font: normal 100% sans-serif;
   color: $text;
-	line-height: 1.5;
+	line-height: 1.6;
 	border-color: #ddd;
 	min-height: 100%;
   background-color: $bg;
