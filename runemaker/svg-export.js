@@ -3,12 +3,12 @@
  * RELIES ON GLOBAL: runeMap, canvasWidth, canvasHeight, thickness, etc.
  * @returns {string} The complete SVG XML string.
  */
-function generateSvgContent() {
+function generateSvgContent(text) {
     updateUIParams(); // Ensure all globals (padding, size, etc.) are up-to-date
 
     // --- 1. PRE-CALCULATE LOGICAL BOUNDS (Original Scale) ---
-    const finalWidth = canvasWidth + (canvasPadding * 2);
-    const finalHeight = canvasHeight; // Using fixed height for scrollable content
+    const finalWidth = canvasWidth + (canvasPadX * 2);
+    const finalHeight = canvasHeight + (canvasPadY * 2); // Using fixed height for scrollable content
 
     let svg = `<svg width="${finalWidth}" height="${finalHeight}" viewBox="0 0 ${finalWidth} ${finalHeight}" xmlns="http://www.w3.org/2000/svg">`;
     if (!backgroundTransparent) {
@@ -16,11 +16,11 @@ function generateSvgContent() {
     }
 
     // --- 2. START DRAWING LOOP (Unscaled Coordinates) ---
-    let currentX = canvasPadding;
-    let currentY = canvasPadding;
+    let currentX = canvasPadX;
+    let currentY = canvasPadY;
 
     const normalizedText = text.toUpperCase();
-    const wrapLimit = canvasWidth + canvasPadding;
+    const wrapLimit = canvasWidth + canvasPadX;
 
     for (const char of normalizedText) {
         let runeDef = runeMap[char];
@@ -31,7 +31,7 @@ function generateSvgContent() {
 
         if (typeof runeDef === 'object' && runeDef.type) {
             if (runeDef.type === 'LINE_BREAK') {
-                currentX = canvasPadding;
+                currentX = canvasPadX;
                 currentY += runeSize + lineSpacing;
                 continue;
             } else if (runeDef.type === 'SPACE') {
@@ -43,7 +43,7 @@ function generateSvgContent() {
         // Word Wrap Check (Soft Break)
         const blockWidth = (runeSize + charSpacing); // Approximate width for individual char check
         if (currentX + blockWidth > wrapLimit) {
-            currentX = canvasPadding;
+            currentX = canvasPadX;
             currentY += runeSize + lineSpacing;
         }
 
@@ -55,7 +55,7 @@ function generateSvgContent() {
                 const yOff = parseValue(segment.yOff);
                 const angleDeg = segment.direction;
 
-                const { baseX, baseY } = getStartPoint(segment.start);
+                const { baseX, baseY } = getStartPoint(segment);
                 const startX = currentX + baseX + xOff;
                 const startY = currentY + baseY + yOff;
 

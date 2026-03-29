@@ -13,7 +13,8 @@ const SettingsPresets = {
         "backgroundTransparent": false,
         "canvasWidth": 1800,
         "canvasHeight": 5000,
-        "canvasPadding": "80",
+        "canvasPadX": "80",
+        "canvasPadY": "80",
         "canvasZoom": 0.6,
         "showBoundingBox": false,
         "enableWordWrap": false
@@ -32,7 +33,8 @@ const SettingsPresets = {
         "backgroundTransparent": false,
         "canvasWidth": 1500,
         "canvasHeight": 5000,
-        "canvasPadding": "60",
+        "canvasPadX": "60",
+        "canvasPadY": "60",
         "canvasZoom": 0.7,
         "showBoundingBox": false,
         "enableWordWrap": true
@@ -51,7 +53,8 @@ const SettingsPresets = {
         "backgroundTransparent": false,
         "canvasWidth": 2000,
         "canvasHeight": 5000,
-        "canvasPadding": "80",
+        "canvasPadX": "80",
+        "canvasPadY": "80",
         "canvasZoom": 0.5,
         "showBoundingBox": false,
         "enableWordWrap": false
@@ -70,7 +73,8 @@ const SettingsPresets = {
         "backgroundTransparent": false,
         "canvasWidth": 2300,
         "canvasHeight": 5000,
-        "canvasPadding": "90",
+        "canvasPadX": "90",
+        "canvasPadY": "90",
         "canvasZoom": 0.4,
         "showBoundingBox": false,
         "enableWordWrap": false
@@ -89,7 +93,8 @@ const SettingsPresets = {
         "backgroundTransparent": false,
         "canvasWidth": 2200,
         "canvasHeight": 6400,
-        "canvasPadding": "250",
+        "canvasPadX": "250",
+        "canvasPadY": "250",
         "canvasZoom": 0.4,
         "showBoundingBox": false,
         "enableWordWrap": true
@@ -108,7 +113,8 @@ const SettingsPresets = {
         "backgroundTransparent": false,
         "canvasWidth": 1800,
         "canvasHeight": 5000,
-        "canvasPadding": "20",
+        "canvasPadX": "20",
+        "canvasPadY": "20",
         "canvasZoom": 0.6,
         "showBoundingBox": false,
         "enableWordWrap": true
@@ -127,7 +133,8 @@ const SettingsPresets = {
         "backgroundTransparent": false,
         "canvasWidth": 900,
         "canvasHeight": 5000,
-        "canvasPadding": "20",
+        "canvasPadX": "20",
+        "canvasPadY": "20",
         "canvasZoom": 1,
         "showBoundingBox": false,
         "enableWordWrap": false

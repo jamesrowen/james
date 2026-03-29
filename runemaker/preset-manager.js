@@ -4,11 +4,9 @@
 const ACTIVE_HIGHLIGHT_COLOR = '#fcc6b3';
 const TEXT_PRESETS_KEY = 'TextPresets';
 const SETTINGS_PRESETS_KEY = 'SettingsPresets';
+const ANIMATIONS_KEY = 'AnimationPresets';
 const RUNE_SETS_KEY = 'RuneSets';
 const WORKSPACE_STORAGE_KEY = 'RuneGeneratorActiveWorkspace';
-let presetDrawCallback = null;
-let GetTextInput = null;
-let SetTextInput = null;
 
 // Cconfiguration for all preset types (UI STATE IS STORED HERE)
 const presetTypes = [
@@ -33,6 +31,13 @@ const presetTypes = [
         saveBtnId: 'saveRuneSetBtn',
         nameInputId: 'runeSetName',
         activePreset: null
+    }, {
+        key: ANIMATIONS_KEY,
+        simpleKey: 'animation',
+        containerId: 'animation-list-container',
+        saveBtnId: 'saveAnimationBtn',
+        nameInputId: 'animationPresetName',
+        activePreset: null
     }
 ];
 
@@ -54,6 +59,7 @@ function getPresets(key) {
         if (key === TEXT_PRESETS_KEY) presets = TextPresets;
         else if (key === SETTINGS_PRESETS_KEY) presets = SettingsPresets;
         else if (key === RUNE_SETS_KEY) presets = RuneSets;
+        else if (key === ANIMATIONS_KEY) presets = Animations;
         savePresets(key, presets); // Save defaults for persistence
     }
 
@@ -78,6 +84,7 @@ function saveActiveWorkspace() {
         text: presetTypes.find(t => t.key === TEXT_PRESETS_KEY).activePreset,
         settings: presetTypes.find(t => t.key === SETTINGS_PRESETS_KEY).activePreset,
         runeset: presetTypes.find(t => t.key === RUNE_SETS_KEY).activePreset,
+        animation: presetTypes.find(t => t.key === ANIMATIONS_KEY).activePreset,
     };
     localStorage.setItem(WORKSPACE_STORAGE_KEY, JSON.stringify(workspaceState));
 }
@@ -146,7 +153,8 @@ function captureCurrentSettings() {
         backgroundTransparent: document.getElementById('backgroundTransparent').checked,
         canvasWidth: parseFloat(document.getElementById('canvasWidth').value),
         canvasHeight: parseFloat(document.getElementById('canvasHeight').value),
-        canvasPadding: document.getElementById('canvasPadding').value,
+        canvasPadX: document.getElementById('canvasPadX').value,
+        canvasPadY: document.getElementById('canvasPadY').value,
         canvasZoom: parseFloat(document.getElementById('canvasZoom').value),
         showBoundingBox: document.getElementById('showBoundingBox').checked,
         enableWordWrap: document.getElementById('enableWordWrap').checked,
@@ -177,7 +185,7 @@ function applyRuneMap(savedMap) {
     Object.assign(runeMap, savedMap);
     initializeEditorUI();
     // 4. Redraw the canvas
-    presetDrawCallback();
+    drawRunes();
 }
 
 // --- 3. CORE ACTION HANDLERS ---
@@ -187,7 +195,7 @@ function handleSavePreset(key, nameInputId) {
     let data;
 
     if (key === TEXT_PRESETS_KEY) {
-        data = GetTextInput().trim();
+        data = TEXT_INPUT.value.trim();
         if (!data) return showNotification("Cannot save an empty text input.", true);
         name = generateTextPresetName(data);
     } else {
@@ -198,6 +206,8 @@ function handleSavePreset(key, nameInputId) {
           data = captureCurrentSettings();
         } else if (key === RUNE_SETS_KEY) {
           data = captureCurrentRuneMap();
+        } else if (key === ANIMATIONS_KEY) {
+            data = JSON.parse(JSON.stringify(CurAnimation));
         }
     }
 
@@ -210,10 +220,14 @@ function handleSavePreset(key, nameInputId) {
     const fakeEvent = { target: { dataset: { presetName: name } } };
     handleLoadPreset(fakeEvent, key);// Provide appropriate notification
 
+    let type = 'preset';
+    if (key === ANIMATIONS_KEY) {
+        type = 'animation';
+    }
     if (isNewPreset) {
-        showNotification(`"${name}" preset created!`);
+        showNotification(`"${name}" ${type} created!`);
     } else {
-        showNotification(`"${name}" preset updated!`);
+        showNotification(`"${name}" ${type} updated!`);
     }
 
     renderAllPresets();
@@ -230,21 +244,23 @@ function handleLoadPreset(event, key) {
     const type = presetTypes.find(t => t.key === key);
 
     if (key === TEXT_PRESETS_KEY) {
-        SetTextInput(dataToLoad);
+        TEXT_INPUT.value = dataToLoad;
     } else if (key === RUNE_SETS_KEY) {
         applyRuneMap(dataToLoad);
-        const nameInput = document.getElementById(type.nameInputId);
-        if (nameInput) nameInput.value = name;
+    } else if (key === ANIMATIONS_KEY) {
+        CurAnimation = JSON.parse(JSON.stringify(dataToLoad));
+        selectTransition(0); 
+        renderTransitionList();
     } else {
         applySettingsToUI(dataToLoad);
-        const nameInput = document.getElementById(type.nameInputId);
-        if (nameInput) nameInput.value = name;
     }
+    const nameInput = document.getElementById(type.nameInputId);
+    if (nameInput) nameInput.value = name;
     type.activePreset = name;
 
     saveActiveWorkspace();
     renderAllPresets();
-    presetDrawCallback();
+    drawRunes();
 }
 
 function handleDeletePreset(event, key) {
@@ -376,13 +392,7 @@ function renderAllPresets() {
 
 // --- 6. PUBLIC SETUP ENTRY POINT ---
 
-window.setupPresetManager = function(getTextInput, setTextInput, redrawCanvas) {
-    // 1. Assign Callbacks
-    GetTextInput = getTextInput;
-    SetTextInput = setTextInput;
-    presetDrawCallback = redrawCanvas;
-
-    // 3. Attach Event Listeners
+window.setupPresetManager = function() {
     presetTypes.forEach(type => {
         const saveBtn = document.getElementById(type.saveBtnId);
         if (saveBtn) {
@@ -401,6 +411,9 @@ window.setupPresetManager = function(getTextInput, setTextInput, redrawCanvas) {
         exportTextBtn.addEventListener('click', () => handleExport(TEXT_PRESETS_KEY));
     }
 
-    // 4. Initial Render
+    const exportAnimBtn = document.getElementById('exportAnimationsBtn');
+    if (exportAnimBtn) {
+        exportAnimBtn.addEventListener('click', () => handleExport(ANIMATIONS_KEY));
+    }
     renderAllPresets();
 };

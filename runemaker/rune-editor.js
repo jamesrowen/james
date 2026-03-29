@@ -27,9 +27,8 @@ const CORNER_LABELS = ['0', '1', '2', '3'];
 
 // --- 1. INITIALIZATION ---
 
-window.setupRuneEditor = function(map, drawCallback) {
-    window.runeMap = map;
-    drawRunesCallback = drawCallback;
+window.setupRuneEditor = function() {
+    drawRunesCallback = drawRunes;
 
     initializeEditorUI();
 
@@ -60,11 +59,9 @@ function initializeEditorUI() {
         const btn = document.createElement('button');
         btn.textContent = code;
         btn.classList.add('rune-select-btn');
-
         btn.style.padding = '5px 8px';
         btn.style.border = '1px solid #ccc';
         btn.style.cursor = 'pointer';
-
         btn.dataset.runeCode = code;
         btn.addEventListener('click', handleRuneSelectionChange);
         fragment.appendChild(btn);
